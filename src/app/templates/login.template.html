@@ -1,0 +1,70 @@
+<div class="background-image">
+    <div class="login-page">
+        <div class="login-image"></div>
+        <div class="card login-panel ui-fluid">
+            <div class="login-panel-content">
+                <div class="ui-g">
+                    <div class="ui-g-12" style="text-align:center;">
+                        <img src="../../assets/layout/images/login-logo2.png" height="100" width="100"/>
+                        <h2 class="welcome-text text-center mt-2x mb-1x">Sign In</h2>
+                    </div>
+                </div>
+                <div class="ui-g">
+                    <div class="ui-g-12" style="text-align:right;" *ngIf="errorMessage">
+                        <p-message severity="error" text="{{errorMessage}}"></p-message>
+                    </div>
+                    <div class="ui-g">
+                        <div class="ui-g-12">
+                            <form id="loginForm" #form="ngForm">
+                                <div class="ui-g-12" style="text-align:left;">
+                                    <label class="login-label">TenantId</label>
+                                    <div class="ui-inputgroup">
+                                        <span class="ui-inputgroup-addon"><i class="fa fa-sitemap"></i></span>
+                                        <input type="text" class="ui-inputtext ui-widget ui-state-default ui-corner-all"
+                                               required (keyup.enter)="login(form)" [(ngModel)]="tenantId"
+                                               name="tenant" #tenant="ngModel" pattern="[a-zA-Z0-9-_.]+"/>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12" style="text-align:left;">
+                                    <label class="login-label">Username</label>
+
+                                    <div class="ui-inputgroup">
+                                        <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+                                        <input type="text" class="ui-inputtext ui-widget ui-state-default ui-corner-all"
+                                               required (keyup.enter)="login(form)" [(ngModel)]="username"
+                                               name="username" #name="ngModel" pattern="[a-zA-Z0-9-_. @]+"/>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12" style="text-align:left;">
+                                    <label class="login-label">Password</label>
+                                    <div class="ui-inputgroup">
+                                        <span class="ui-inputgroup-addon"><i class="fa fa-lock"></i></span>
+                                        <input type="password"
+                                               class="ui-inputtext ui-widget ui-state-default ui-corner-all"
+                                               name="pass" required (keyup.enter)="login(form)" [(ngModel)]="password"
+                                               #pass="ngModel"/>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-md-6 button-pane">
+                                    <button type="button"
+                                            class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                                            role="button" aria-disabled="false" (click)="login(form)">
+                                        <span class="ui-button-text ui-c">Sign In</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+<div style="position: absolute" *ngIf="loaderService.inProgress === true">
+    <div class="splash-screen" style="z-index: 1504;">
+        <div class="splash-loader"></div>
+    </div>
+</div>
+-->
