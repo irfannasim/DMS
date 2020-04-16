@@ -1,0 +1,29 @@
+/*Margins*/
+.m-0{ margin: 0;}
+.mb-1x{ margin-bottom: 10px;}
+/*Borders*/
+.bdr-top{border-top: 1px solid #dfdfdf;}
+.pointer:hover {
+    cursor: pointer
+}
+/*mix*/
+.hr{ width: 100%; float: left;}
+/*.layout-wrapper .topbar .topbar-left{box-shadow: none !important;}*/
+/*#menu-button{ display: none !important;}*/
+.layout-wrapper .layout-menu-container .layout-main-menu{ margin-top: 20px;}
+ul.layout-menu li .ui-splitbutton{ width: 90%; border: 1px solid #a0a0a0; border-radius: 4px; background: #fff; margin: 0 0 10px 10px;}
+ul.layout-menu li .ui-splitbutton .ui-button{ color: #333; background: #fff; }
+ul.layout-menu li .ui-splitbutton .ui-button:enabled:focus{ box-shadow: none;}
+ng-tns-c3-1 ui-button ui-widget ui-state-default ui-corner-left ui-button-text-only{}
+ul.layout-menu li .ui-splitbutton button:first-child{width: 53%; text-align: right;}
+.layout-wrapper .layout-menu li a{ width: 85%;padding: 8px 15px; border: 0;}
+.layout-wrapper .layout-menu li.active-menuitem > a{color: #0951a4; border: none; border-top-right-radius:20px; border-bottom-right-radius:20px; background: #bedcfe; }
+li.btm-link{ position: absolute; bottom: 70px; left: 12px;}
+li.btm-link .col-1{ width: 30%; max-width: 30px; float: left;}
+li.btm-link .col-2{ width: 70%; float: left; font-size: 12px; line-height: 12px; padding: 0 0 10px 0px;}
+li.btm-link .col-2 a{color: #0134a8; padding: 10px 0 0 0; height: 26px; font-size: 13px; font-weight: 600;}
+li.btm-link .col-2 a:hover{ text-decoration:underline !important; color: #002c8f;}
+.search-box{ float: left !important; padding: 0 0 0 30px !important; width: 400px;}
+.search-box li.search-item{ width: 100%;}
+.search-box li.search-item input { width: 100% !important;}
+

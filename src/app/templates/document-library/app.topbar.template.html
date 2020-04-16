@@ -14,7 +14,16 @@
         <a id="topbar-menu-button" href="#" (click)="content.onTopbarMenuButtonClick($event)">
             <i class="fa fa-bars"></i>
         </a>
+        <ul class="topbar-items fadeInDown search-box" [ngClass]="{'topbar-items-visible': content.topbarMenuActive}">
 
+            <li #search class="search-item" [ngClass]="{'active-top-menu':content.activeTopbarItem === search}"
+                (click)="content.onTopbarItemClick($event,search)">
+                <div class="topbar-search">
+                    <input type="text" placeholder="Search"/>
+                    <i class="fa fa-search"></i>
+                </div>
+            </li>
+        </ul>
         <ul class="topbar-items fadeInDown" [ngClass]="{'topbar-items-visible': content.topbarMenuActive}">
             <li #profile class="profile-item" *ngIf="content.profileMode==='top'||content.isHorizontal()"
                 [ngClass]="{'active-top-menu':content.activeTopbarItem === profile}">
@@ -156,13 +165,7 @@
                     </li>
                 </ul>
             </li>
-            <li #search class="search-item" [ngClass]="{'active-top-menu':content.activeTopbarItem === search}"
-                (click)="content.onTopbarItemClick($event,search)">
-                <div class="topbar-search">
-                    <input type="text" placeholder="Search"/>
-                    <i class="fa fa-search"></i>
-                </div>
-            </li>
+
         </ul>
     </div>
 </div>
