@@ -4,4 +4,17 @@
         </p-splitButton>
     </li>
     <li app-menuitem *ngFor="let item of model; let i = index;" [item]="item" [index]="i" [root]="true"></li>
+    <li class=" btm-link">
+        <div class="col-1"><img src="../../../assets/layout/images/storage.png"
+                                height="19" width="18"/></div>
+        <div class="col-2">
+            <div class="hr">Storage</div>
+            <div class="hr mb-1x"><img src="../../../assets/layout/images/storage-bar.png" height="3" width="123"/>
+            </div>
+            <div class="hr mb-1x"> 74.9 GB of 130 GB used</div>
+            <div class="hr mb-1x"><a href="#."> Buy storage</a></div>
+
+        </div>
+    </li>
+
 </ul>
