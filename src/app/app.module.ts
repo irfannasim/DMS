@@ -19,6 +19,7 @@ import {PrimengModule} from "./shared/primeng/primeng.module";
 import {ContentComponent} from "./components/document-library/content.component";
 import {MenuService} from "./service/app.menu.service";
 import {SharedService} from "./service/shared.service";
+import {UserUpdateService} from "./service/user.update.service";
 
 @NgModule({
     imports: [
@@ -46,7 +47,8 @@ import {SharedService} from "./service/shared.service";
         MenuService,
         RequestsService,
         WbdUtilService,
-        SharedService
+        SharedService,
+        UserUpdateService
     ],
     bootstrap: [AppComponent]
 })

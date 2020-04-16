@@ -1,11 +1,10 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RequestsService} from '../service/requests.service';
 import {Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
-import {APIURLConstants} from '../util/api.url.constants';
 import {SharedService} from '../service/shared.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import {WbdUtilService} from "../service/wbd-util.service";
+import {APIURLConstants} from "../util/api.url.constants";
 
 @Component({
     selector: 'login-component',
@@ -21,15 +20,16 @@ import {WbdUtilService} from "../service/wbd-util.service";
     ]
 
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+
+    tenantId: string;
     username: string;
     password: string;
-    tenantId: string;
     errorMessage: string;
+    remember: boolean = false;
 
     constructor(private requestsService: RequestsService,
                 private router: Router,
-                public wbdUtilService: WbdUtilService,
                 public sharedService: SharedService) {
     };
 
@@ -43,73 +43,40 @@ export class LoginComponent {
 
     login(form: NgForm) {
         if (form.valid) {
-            this.requestsService.postRequestOauth2Token(
-                APIURLConstants.OAUTH_TOKEN_API
+            if (window.localStorage.getItem(btoa('access_token'))) {
+                this.router.navigate(['/document-library']);
+                return;
+            }
+            this.requestsService.postRequestAccessToken(
+                APIURLConstants.LOGIN_API
                 , {
-                    'userName': this.username + '__' + this.tenantId,
+                    'tenantId': this.tenantId,
+                    'username': this.username,
                     'password': this.password,
-                    'grantType': 'password',
                 })
                 .subscribe(
                     (response: Response) => {
-                        if (response['token_type'] === 'bearer') {
-                            window.localStorage.setItem(btoa('access_token'), btoa(response['access_token']));
-                            window.localStorage.setItem(btoa('refresh_token'), btoa(response['refresh_token']));
-                            window.localStorage.setItem(btoa('expire_in'), btoa(response['expires_in']));
+                        if (response['responseCode'] === 'USR_AUTH_SUC_01') {
+                            let obj = JSON.parse(JSON.stringify(response['responseData']));
+
+                            window.localStorage.setItem(btoa('access_token'), btoa(this.username + ':' + this.password));
                             window.localStorage.setItem(btoa('tenantId'), btoa(this.tenantId));
+                            window.localStorage.setItem(btoa('user-info'), JSON.stringify(obj));
+                            this.sharedService.isUserLoggedIn = true;
 
-                            this.requestsService.postRequest(
-                                APIURLConstants.LOGIN_API
-                                , {
-                                    'userName': this.username,
-                                    'password': this.password,
-                                })
-                                .subscribe(
-                                    (response: Response) => {
-                                        if (response['responseCode'] === 'USR_AUTH_SUC_01') {
-                                            let obj = JSON.parse(JSON.stringify(response['responseData']));
-                                            window.localStorage.setItem(btoa('permissions'),
-                                                JSON.stringify(this.wbdUtilService.extractPermissions(obj.uRole.rPermissions)));
-                                            obj.uRole.rPermissions = [];
-                                            window.localStorage.setItem(btoa('user-info'), JSON.stringify(obj));
-                                            this.wbdUtilService.userInfo = JSON.parse(JSON.stringify(response['responseData']));
-                                            let lang = this.wbdUtilService.userInfo.uProfile.upLanguage;
-                                            this.sharedService.timeoutSubscribed = false;
-                                            this.router.navigate(['/document-library']);
-                                            if (lang != 'en') {
-                                                this.wbdUtilService.changeLayoutOrientation(lang);
-                                            }
-                                        } else {
-                                            this.router.navigate(['/login']);
-                                            window.localStorage.removeItem(btoa('access_token'));
-                                            window.localStorage.removeItem(btoa('refresh_token'));
-                                            window.localStorage.removeItem(btoa('expire_in'));
-                                            window.localStorage.removeItem(btoa('tenantId'));
-                                            window.localStorage.removeItem(btoa('user-info'));
-
-                                            this.errorMessage = response['responseMessage'];
-                                        }
-                                    },
-                                    (error: any) => {
-                                        this.errorMessage = error.error.error_description;
-                                        this.wbdUtilService.tokenExpired(error.error.error);
-                                    });
+                            if (this.remember) {
+                                window.localStorage.setItem(this.username, this.password);
+                            }
+                            this.router.navigate(['/document-library']);
                         } else {
+                            this.router.navigate(['/login']);
                             this.errorMessage = response['responseMessage'];
-                            window.localStorage.removeItem(atob('access_token'));
-                            window.localStorage.removeItem(atob('refresh_token'));
-                            window.localStorage.removeItem(atob('expire_in'));
-                            window.localStorage.removeItem(atob('tenantId'));
-                            window.localStorage.removeItem(atob('user-info'));
                         }
                     }, (error: any) => {
-                        if (error.error.error === 'invalid_grant') {
-                            this.errorMessage = 'Invalid username or password.';
-                        } else if (error.error.error === 'unauthorized') {
-                            this.errorMessage = 'You have entered a wrong tenantId.';
+                        if (error.status === 401) {
+                            this.errorMessage = 'Invalid Credentials.';
                         } else {
-                            this.errorMessage = error.error.error_description;
-                            this.wbdUtilService.tokenExpired(error.error.error);
+                            this.errorMessage = 'Internal Server Error, please contact administrator.';
                         }
                     });
         } else {

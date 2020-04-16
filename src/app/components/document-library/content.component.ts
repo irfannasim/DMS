@@ -3,6 +3,8 @@ import {MenuService} from "../../service/app.menu.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {WbdUtilService} from "../../service/wbd-util.service";
 import {SharedService} from "../../service/shared.service";
+import {APIURLConstants} from "../../util/api.url.constants";
+import {RequestsService} from "../../service/requests.service";
 
 enum MenuOrientation {
     STATIC,
@@ -38,7 +40,8 @@ export class ContentComponent implements OnInit {
                 public renderer: Renderer2,
                 private menuService: MenuService,
                 private wbdUtilService: WbdUtilService,
-                private sharedService: SharedService) {
+                private sharedService: SharedService,
+                private requestsService: RequestsService) {
     }
 
     ngOnInit() {
@@ -175,6 +178,23 @@ export class ContentComponent implements OnInit {
 
     changeToSlimMenu() {
         this.layoutMode = MenuOrientation.SLIM;
+    }
+
+    logout() {
+        this.requestsService.getRequest(
+            APIURLConstants.LOGOUT_API)
+            .subscribe(
+                (response: Response) => {
+                    if (response['responseCode'] === 'USR_SUC_02') {
+                        this.wbdUtilService.logout();
+
+                        this.router.navigate(['/login']);
+                    }
+                },
+                (error: any) => {
+                    this.wbdUtilService.tokenExpired(error.error.error);
+                }
+            );
     }
 
 }

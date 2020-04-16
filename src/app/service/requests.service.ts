@@ -21,16 +21,23 @@ export class RequestsService {
             return '';
         else {
             if (port === '' || !port) {
+                console.log(protocol + environment.http_separator + server + ':' + port + contextPath);
                 return protocol + environment.http_separator + server + ':' + port + contextPath;
             } else {
+                console.log(protocol + environment.http_separator + server + ':' + port + contextPath);
                 return protocol + environment.http_separator + server + ':' + port + contextPath;
             }
         }
     }
 
-    postRequestOauth2Token(url: any, _params: any) {
-        const reqHeader = new HttpHeaders({'Authorization': 'Basic ' + btoa(environment.api_access_client + ':' + environment.api_access_secret)});
-        let URI = this.getBEAPIServer() + url + '?username=' + _params['userName'] + '&password=' + _params['password'] + '&grant_type=' + _params['grantType'];
+    postRequestAccessToken(url: any, _params: any) {
+        const reqHeader = new HttpHeaders(
+            {
+                'Authorization': 'Basic ' + btoa(_params['username'] + ':' + _params['password']),
+                'X-TENANT-ID': _params['tenantId'],
+            }
+        );
+        let URI = this.getBEAPIServer() + url;
 
         return this.http.post(URI, _params, {headers: reqHeader});
     }
@@ -38,10 +45,9 @@ export class RequestsService {
     getRequest(url: any) {
         const reqHeader = new HttpHeaders(
             {
-                'Authorization': 'Bearer ' + atob(this.getToken()),
-                'X-TENANT-ID': atob(localStorage.getItem(btoa('tenantId'))),
-                'Accept-Language': atob(localStorage.getItem(btoa('language'))),
-                'Content-Type': 'application/json'
+                'Authorization': 'Basic ' + this.getToken(),
+                'Content-Type': 'application/json',
+                'X-TENANT-ID': atob(localStorage.getItem(btoa('tenantId')))
             }
         );
         return this.http.get(this.getBEAPIServer() + url, {headers: reqHeader});
@@ -50,10 +56,19 @@ export class RequestsService {
     postRequest(url: any, _params: any) {
         const reqHeader = new HttpHeaders(
             {
-                'Authorization': 'Bearer ' + atob(this.getToken()),
-                'X-TENANT-ID': atob(localStorage.getItem(btoa('tenantId'))),
-                'Accept-Language': atob(localStorage.getItem(btoa('language'))),
-                'Content-Type': 'application/json'
+                'Authorization': 'Basic ' + this.getToken(),
+                'Content-Type': 'application/json',
+                'X-TENANT-ID': atob(localStorage.getItem(btoa('tenantId')))
+            }
+        );
+        return this.http.post(this.getBEAPIServer() + url, _params, {headers: reqHeader});
+    }
+
+    postUnAuthRequest(url: any, _params: any) {
+        const reqHeader = new HttpHeaders(
+            {
+                'Content-Type': 'application/json',
+                'X-TENANT-ID': atob(localStorage.getItem(btoa('tenantId')))
             }
         );
         return this.http.post(this.getBEAPIServer() + url, _params, {headers: reqHeader});
@@ -62,10 +77,9 @@ export class RequestsService {
     deleteRequest(url: any) {
         const reqHeader = new HttpHeaders(
             {
-                'Authorization': 'Bearer ' + atob(this.getToken()),
-                'X-TENANT-ID': atob(localStorage.getItem(btoa('tenantId'))),
-                'Accept-Language': atob(localStorage.getItem(btoa('language'))),
-                'Content-Type': 'application/json'
+                'Authorization': 'Basic ' + this.getToken(),
+                'Content-Type': 'application/json',
+                'X-TENANT-ID': atob(localStorage.getItem(btoa('tenantId')))
             }
         );
         return this.http.delete(this.getBEAPIServer() + url, {headers: reqHeader});
@@ -74,84 +88,22 @@ export class RequestsService {
     putRequest(url: any, _params: any) {
         const reqHeader = new HttpHeaders(
             {
-                'Authorization': 'Bearer ' + atob(this.getToken()),
-                'X-TENANT-ID': atob(localStorage.getItem(btoa('tenantId'))),
-                'Accept-Language': atob(localStorage.getItem(btoa('language'))),
-                'Content-Type': 'application/json'
+                'Authorization': 'Basic ' + this.getToken(),
+                'Content-Type': 'application/json',
+                'X-TENANT-ID': atob(localStorage.getItem(btoa('tenantId')))
             }
         );
         return this.http.put(this.getBEAPIServer() + url, _params, {headers: reqHeader});
     }
 
-    postRequestMultipartFormData(url: any, data: any) {
+    putUnAuthRequest(url: any, _params: any) {
         const reqHeader = new HttpHeaders(
             {
-                'Authorization': 'Bearer ' + atob(this.getToken()),
-                'X-TENANT-ID': atob(localStorage.getItem(btoa('tenantId'))),
-                'Accept-Language': atob(localStorage.getItem(btoa('language'))),
+                'Content-Type': 'application/json',
+                'X-TENANT-ID': atob(localStorage.getItem(btoa('tenantId')))
             }
         );
-        let formData: FormData = new FormData();
-        formData.append('file', data, data.name);
-        return this.http.post(this.getBEAPIServer() + url, formData, {headers: reqHeader});
+        return this.http.put(this.getBEAPIServer() + url, _params, {headers: reqHeader});
     }
 
-    postRequestMultipartFormAndData(url: any, file: any, data: any) {
-        const reqHeader = new HttpHeaders(
-            {
-                'Authorization': 'Bearer ' + atob(this.getToken()),
-                'X-TENANT-ID': atob(localStorage.getItem(btoa('tenantId'))),
-                'Accept-Language': atob(localStorage.getItem(btoa('language'))),
-            }
-        );
-        let formData: FormData = new FormData();
-        formData.append('data', new Blob([JSON.stringify(data)], {
-            type: 'application/json'
-        }));
-        if (file) {
-            formData.append('file', file, file.name);
-        }
-        return this.http.post(this.getBEAPIServer() + url, formData, {headers: reqHeader});
-    }
-
-    putRequestMultipartFormAndData(url: any, file: File, data: any) {
-        const reqHeader = new HttpHeaders(
-            {
-                'Authorization': 'Bearer ' + atob(this.getToken()),
-                'X-TENANT-ID': atob(localStorage.getItem(btoa('tenantId'))),
-                'Accept-Language': atob(localStorage.getItem(btoa('language'))),
-            });
-
-        let formData: FormData = new FormData();
-        formData.append('data', new Blob([JSON.stringify(data)],
-            {
-                type: 'application/json'
-            }));
-        if (file != null) {
-            formData.append('file', file, file.name);
-        }
-        return this.http.put(this.getBEAPIServer() + url, formData, {headers: reqHeader});
-    }
-
-    getRequestUnAuth(url: any, tenantId: string) {
-        const reqHeader = new HttpHeaders(
-            {
-                'X-TENANT-ID': tenantId,
-                'Accept-Language': 'en',
-                'Content-Type': 'application/json'
-            }
-        );
-        return this.http.get(this.getBEAPIServer() + url, {headers: reqHeader});
-    }
-
-    postRequestUnAuth(url: any, _params: any, tenantId: string) {
-        const reqHeader = new HttpHeaders(
-            {
-                'X-TENANT-ID': tenantId,
-                'Accept-Language': 'en',
-                'Content-Type': 'application/json'
-            }
-        );
-        return this.http.post(this.getBEAPIServer() + url, _params, {headers: reqHeader});
-    }
 }

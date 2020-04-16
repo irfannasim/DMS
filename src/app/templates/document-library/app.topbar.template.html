@@ -21,8 +21,8 @@
 
                 <a href="#" (click)="content.onTopbarItemClick($event,profile)">
                     <img class="profile-image" src="assets/layout/images/avatar.png"/>
-                    <span class="topbar-item-name">Isabel Lopez</span>
-                    <span class="topbar-item-role">Marketing</span>
+                    <span class="topbar-item-name">{{wbdUtilService.userInfo?.fullName}}</span>
+                    <span class="topbar-item-role">{{wbdUtilService.userInfo?.role}}</span>
                 </a>
 
                 <ul class="layout-menu fadeInDown">
@@ -45,7 +45,7 @@
                          </a>
                      </li>-->
                     <li role="menuitem">
-                        <a href="#" (click)="content.onTopbarSubItemClick($event)">
+                        <a (click)="content.logout()" (click)="content.onTopbarSubItemClick($event)">
                             <i class="fa fa-fw fa-sign-out"></i>
                             <span>Logout</span>
                         </a>
