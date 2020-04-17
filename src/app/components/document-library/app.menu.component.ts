@@ -51,16 +51,16 @@ export class AppMenuComponent implements OnInit {
 
     private buildMenu() {
         if (this.router.url.split('/')[1] === 'document-library' || this.router.url.split('/')[1] === 'profile') {
-            // if (this.wbdUtilService.userInfo.uOrganization) {
-            this.model = [{label: 'All Files', icon: 'fa fa-folder', routerLink: ['/document-library']},
-                {label: 'Shared By Me', icon: 'fa fa-folder', routerLink: ['/shared-by-me']},
-                {label: 'Shared With Me', icon: 'fa fa-folder', routerLink: ['/shared-with-me']},
-                {label: 'Recents', icon: 'fa fa-folder', routerLink: ['/recents']},
-                {label: 'Favourites', icon: 'fa fa-star', routerLink: ['/favourites']},
-                {label: 'Trash', icon: 'fa fa-trash', routerLink: ['/shared-with-me']},
-                {label: 'Admin Console', icon: 'fa fa-cog', routerLink: ['/admin-console']}
-            ];
-            /*} else {
+            if (this.wbdUtilService.userInfo.uOrganization) {
+                this.model = [{label: 'All Files', icon: 'fa fa-folder', routerLink: ['/document-library']},
+                    {label: 'Shared By Me', icon: 'fa fa-folder', routerLink: ['/shared-by-me']},
+                    {label: 'Shared With Me', icon: 'fa fa-folder', routerLink: ['/shared-with-me']},
+                    {label: 'Recents', icon: 'fa fa-folder', routerLink: ['/recents']},
+                    {label: 'Favourites', icon: 'fa fa-star', routerLink: ['/favourites']},
+                    {label: 'Trash', icon: 'fa fa-trash', routerLink: ['/trash']},
+                    {label: 'Admin Console', icon: 'fa fa-cog', routerLink: ['/admin-console']}
+                ];
+            } else {
                 this.sharedService.userLoggedIn.subscribe(res => {
                     if (res) {
                         this.model = [{label: 'All Files', icon: 'icon-dashboard', routerLink: ['/document-library']},
@@ -68,17 +68,18 @@ export class AppMenuComponent implements OnInit {
                             {label: 'Shared With Me', icon: 'icon-dashboard', routerLink: ['/shared-with-me']},
                             {label: 'Recents', icon: 'icon-dashboard', routerLink: ['/recents']},
                             {label: 'Favourites', icon: 'icon-dashboard', routerLink: ['/favourites']},
+                            {label: 'Trash', icon: 'fa fa-trash', routerLink: ['/trash']},
                             {label: 'Admin Console', icon: 'icon-dashboard', routerLink: ['/admin-console']}
                         ];
                     }
                 });
-            }*/
+            }
         } else {
             this.model = [
-                {label: 'Admin Console', icon: 'icon-bk-db', routerLink: ['/admin-console']},
-                {label: 'Users', icon: 'icon-company', routerLink: ['/admin-console/user']},
-                {label: 'Users Content', icon: 'icon-users', routerLink: ['/admin-console/user-content']},
-                {label: 'Account Setting', icon: 'icon-role', routerLink: ['/admin-console/account-setting']},
+                {label: 'Dashboard', icon: 'fa fa-home', routerLink: ['/admin-console']},
+                {label: 'Users', icon: 'fa fa-user', routerLink: ['/admin-console/user']},
+                {label: 'Users Content', icon: 'fa fa-user', routerLink: ['/admin-console/user-content']},
+                {label: 'Account Setting', icon: 'fa fa-cog', routerLink: ['/admin-console/account-setting']},
             ];
         }
     }
