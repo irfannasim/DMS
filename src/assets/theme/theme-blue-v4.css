@@ -1642,7 +1642,7 @@ body .ui-tabview.ui-tabview-top .ui-tabview-nav li, body .ui-tabview.ui-tabview-
 }
 body .ui-tabview.ui-tabview-top .ui-tabview-nav li a, body .ui-tabview.ui-tabview-bottom .ui-tabview-nav li a, body .ui-tabview.ui-tabview-left .ui-tabview-nav li a, body .ui-tabview.ui-tabview-right .ui-tabview-nav li a {
   padding: 10px 15px;
-  color: #007bff;
+  color: #000;
   font-weight: normal;
 }
 body .ui-tabview.ui-tabview-top .ui-tabview-nav li a .ui-tabview-left-icon, body .ui-tabview.ui-tabview-bottom .ui-tabview-nav li a .ui-tabview-left-icon, body .ui-tabview.ui-tabview-left .ui-tabview-nav li a .ui-tabview-left-icon, body .ui-tabview.ui-tabview-right .ui-tabview-nav li a .ui-tabview-left-icon {
@@ -1660,8 +1660,9 @@ body .ui-tabview.ui-tabview-top .ui-tabview-nav li:not(.ui-state-active):not(.ui
 body .ui-tabview.ui-tabview-top .ui-tabview-nav li:not(.ui-state-active):not(.ui-state-disabled):hover .pi-times, body .ui-tabview.ui-tabview-bottom .ui-tabview-nav li:not(.ui-state-active):not(.ui-state-disabled):hover .pi-times, body .ui-tabview.ui-tabview-left .ui-tabview-nav li:not(.ui-state-active):not(.ui-state-disabled):hover .pi-times, body .ui-tabview.ui-tabview-right .ui-tabview-nav li:not(.ui-state-active):not(.ui-state-disabled):hover .pi-times {
   color: #bd9090;
 }
+body .ui-tabview.ui-tabview-top .ui-tabview-nav li:focus{ outline: none;}
 body .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active, body .ui-tabview.ui-tabview-bottom .ui-tabview-nav li.ui-state-active, body .ui-tabview.ui-tabview-left .ui-tabview-nav li.ui-state-active, body .ui-tabview.ui-tabview-right .ui-tabview-nav li.ui-state-active {
-  border: 1px solid #dddddd;
+  border-bottom: 1px solid #0a66d5;
   background-color: #ffffff;
 }
 body .ui-tabview.ui-tabview-top .ui-tabview-nav li {
@@ -1681,7 +1682,7 @@ body .ui-tabview.ui-tabview-top .ui-tabview-nav li {
   border-bottom-right-radius: 0;
 }
 body .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active {
-  border-bottom-color: #ffffff;
+  border-bottom-color: #0a66d5;
 }
 body .ui-tabview.ui-tabview-top .ui-tabview-panels {
   border-top: 1px solid #dddddd;

@@ -1,19 +1,140 @@
-<div class="ui-g-12 p-0">
-    <div class="card card-w-title">
-        <div class="page-heading">
+<div class="ui-g-10 p-0">
+    <div class="card card-w-title pt-0">
+       <!-- <div class="page-heading">
             <h3>
                 <i class="fa fa-fw fa-user pr-5 mt-3"></i>
                 Account Setting
             </h3>
         </div>
-        <div class="clearfix"></div>
+        <div class="clearfix"></div>-->
         <div class="form-group ui-fluid">
             <p-tabView>
                 <p-tabPanel header="Company">
-                    Company
+                    <div class="clearfix"></div>
+                    <!--Start form-->
+                    <div class="form-group ui-fluid pbt-0">
+                        <div class="ui-g ">
+                            <div class="ui-g-12 ui-md-6 p-0">
+                                <div class="ui-g">
+                                    <label class="ui-g-4 ui-md-4">Company Name</label>
+                                    <div class=" ui-g-8 ui-md-8">
+                                        <input type="text" pInputText>
+                                    </div>
+                                </div>
+                                <div class="ui-g">
+                                    <label class="ui-g-4 ui-md-4">Phone Number</label>
+                                    <div class=" ui-g-8 ui-md-8">
+                                        <input type="text" pInputText>
+                                    </div>
+                                </div>
+                                <div class="ui-g">
+                                    <label class="ui-g-4 ui-md-4">Email</label>
+                                    <div class=" ui-g-8 ui-md-8">
+                                        <input type="text" pInputText>
+                                    </div>
+                                </div>
+                                <div class="ui-g">
+                                    <label class="ui-g-4 ui-md-4">Address</label>
+                                    <div class=" ui-g-8 ui-md-8">
+                                        <input type="text" pInputText>
+                                    </div>
+                                </div>
+                                <div class="ui-g">
+                                    <label class="ui-g-4 ui-md-4">Country</label>
+                                    <div class=" ui-g-8 ui-md-8">
+                                        <p-dropdown  filter="true">
+                                        </p-dropdown>
+                                    </div>
+                                </div>
+                                <div class="ui-g">
+                                    <label class="ui-g-4 ui-md-4">City</label>
+                                    <div class=" ui-g-8 ui-md-8">
+                                        <p-dropdown  filter="true">
+                                        </p-dropdown>
+                                    </div>
+                                </div>
+                                <div class="ui-g">
+                                    <label class="ui-g-4 ui-md-4">Time zone</label>
+                                    <div class=" ui-g-8 ui-md-8">
+                                        <p-dropdown  filter="true" >
+                                        </p-dropdown>
+                                    </div>
+                                </div>
+                                <div class="ui-g">
+                                    <label class="ui-g-4 ui-md-4">Language</label>
+                                    <div class=" ui-g-8 ui-md-5">
+                                        <p-dropdown  filter="true">
+                                        </p-dropdown>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui-g-12 ui-md-6 p-0 pl-3x-md">
+                                <div class="ui-g">
+                                    <div class=" ui-g-12 ui-md-12 pt-0">
+                                        <h6 class="m-0">Add your comapy logo</h6>
+                                    </div>
+                                </div>
+                                <div class="ui-g">
+                                    <div class=" ui-g-12 ui-md-6">
+                                    <div class="hr text-center bdr-light">
+                                        <div class="hr text-center ptb-2x">
+                                            <img src="../../../assets/layout/images/adminworkbox-logo.png" height="32"
+                                                 width="118"/></div>
+                                        <div class="hr bdr-top">
+                                            <p class=" text-center"> <a href="#."> Change</a></p></div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="ui-g">
+                                    <div class=" ui-g-12 ui-md-12">
+                                        <p class="mt-0">This logo will appear on</p>
+                                        <p>* Preview headers of files and folders that ate shared externally.</p>
+                                        <p>* Headers of emails that are sent out by the team.</p>
+                                        <h6>Info:</h6>
+                                        <p>* supported file formats: jpg, and png (For best results, use a transparent image in png format.)</p>
+                                        <p>* Recommended dimensions: 125 x 35 pixels * Maximum file size: 2 MB</p>
+                                    </div></div>
+                                </div>
+
+
+                    </div>
+                    </div>
                 </p-tabPanel>
                 <p-tabPanel header="Content & Sharing">
-                    Content & Sharing
+                    <!--Start form-->
+                    <div class="form-group ui-fluid pbt-0">
+                        <div class="ui-g ">
+                            <div class="ui-g-12 ui-md-12 p-0">
+                                <div class="hr">
+                                    <h6 class="text-grey">
+                                    Shared links expirations settings</h6>
+                                </div>
+                                <div class="hr">
+                                    <div class="ui-g ">
+                                        <div class="ui-g-1 ui-md-1"><p-inputSwitch [(ngModel)]="checked"></p-inputSwitch></div>
+                                        <div class="ui-g-11 ui-md-11">Disable all shared links after a specified time of links creation </div>
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
                 </p-tabPanel>
                 <p-tabPanel header="Notification">
                     Notification
@@ -22,6 +143,19 @@
                     Repository Settings
                 </p-tabPanel>
             </p-tabView>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class=" layout-main btn-bar card card-w-title bg-grey p-0">
+    <div class="ui-g">
+        <div class="ui-g-12 ui-md-12 text-right">
+            <button pButton type="button" label="Cancel"
+                    class="btn-white" style="width:auto">
+            </button>
+            <button pButton type="button" label="Save"
+                    class="ml-5" style="width:auto">
+            </button>
         </div>
     </div>
 </div>
