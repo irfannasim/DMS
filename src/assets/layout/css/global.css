@@ -550,3 +550,10 @@ body .ui-inputswitch.ui-inputswitch-checked:not(.ui-state-disabled):hover .ui-in
 body .ui-inputswitch.ui-inputswitch-checked.ui-inputswitch-focus .ui-inputswitch-slider {
     background: #005b9f;
 }
+.ui-table .ui-table-tbody > tr:nth-child(even){
+    background-color: transparent !important;
+}
+body .ui-table .ui-table-tbody > tr:nth-child(even).ui-state-highlight {
+    background-color: #007bff !important;
+    color: #ffffff !important;
+}

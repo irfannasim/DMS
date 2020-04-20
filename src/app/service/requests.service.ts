@@ -21,10 +21,8 @@ export class RequestsService {
             return '';
         else {
             if (port === '' || !port) {
-                console.log(protocol + environment.http_separator + server + ':' + port + contextPath);
                 return protocol + environment.http_separator + server + ':' + port + contextPath;
             } else {
-                console.log(protocol + environment.http_separator + server + ':' + port + contextPath);
                 return protocol + environment.http_separator + server + ':' + port + contextPath;
             }
         }
