@@ -1,23 +1,63 @@
-<div class="ui-g-12">
-
+<div class="ui-g-8">
     <p class="m-0">
         Breadcrumb
     </p>
 </div>
-
+<div class="ui-g-4">
+    <p class="m-0">
+        buttons here
+    </p>
+</div>
 <div class="ui-g-10">
-
     <div class="ui-g bdr-top">
-    <h3>
-        Left col
-    </h3>
+        <p-table [columns]="cols" [value]="cars" selectionMode="multiple" [(selection)]="selectedCars1"
+                 [rowHover]="true">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th style="width: 3em">
+                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                    </th>
+                    <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field"></p-sortIcon>
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns" let-rowIndex="rowIndex">
+                <tr [pSelectableRow]="rowData" [pSelectableRowIndex]="rowIndex">
+                    <td>
+                        <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+                    </td>
+                    <td>
+                        <span><img src="{{getIconByType(rowData['name'])}}"/> </span>
+                        <span>{{rowData['name']}}</span>
+                    </td>
+                    <td>
+                        {{rowData['updated']}}
+                    </td>
+                    <td>
+                        {{rowData['size']}}
+                    </td>
+                    <td>
+                        {{rowData['owner']}}
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+                <ul>
+                    <li *ngFor="let car of selectedCars1" style="text-align: left">
+                        {{car.name + ' - ' + car.updated + ' - ' + car.size }}
+                    </li>
+                </ul>
+            </ng-template>
+        </p-table>
     </div>
 </div>
 <div class="ui-g-2">
     <div class="ui-g bdr-top">
-    <h3>
-        Right col
-    </h3>
+        <h3>
+            Right col
+        </h3>
     </div>
 
 </div>

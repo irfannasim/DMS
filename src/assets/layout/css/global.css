@@ -27,3 +27,10 @@ li.btm-link .col-2 a:hover{ text-decoration:underline !important; color: #002c8f
 .search-box li.search-item{ width: 100%;}
 .search-box li.search-item input { width: 100% !important;}
 
+.ui-table .ui-table-tbody > tr:nth-child(even){
+    background-color: transparent !important;
+}
+body .ui-table .ui-table-tbody > tr:nth-child(even).ui-state-highlight {
+    background-color: #007bff !important;
+    color: #ffffff !important;
+}
