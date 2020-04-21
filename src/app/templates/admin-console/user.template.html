@@ -1,19 +1,186 @@
 <div class="ui-g-12 p-0">
     <div class="card card-w-title">
-        <div class="page-heading">
-            <h3>
-                <i class="fa fa-fw fa-user pr-5 mt-3"></i>
-                Users
-            </h3>
-        </div>
-        <div class="clearfix"></div>
+
         <div class="form-group ui-fluid">
             <p-tabView>
                 <p-tabPanel header="Users">
-                    Users
+                    <!--Start form-->
+                    <div class="form-group ui-fluid pbt-0">
+
+                        <h6>New User Account Details</h6>
+                        <div class="hr mb-2x">
+
+                            <div class="ui-g ">
+                                <div class="ui-g-12 ui-md-8 prl-0 bdr-light">
+                                    <div class="ui-g">
+                                        <label class="ui-g-12 ui-md-4">Full Name:</label>
+                                        <div class=" ui-g-12 ui-md-5">
+                                            <input pInputText type="text">
+                                        </div>
+                                    </div>
+                                    <div class="ui-g">
+                                        <label class="ui-g-12 ui-md-4">Email:</label>
+                                        <div class=" ui-g-12 ui-md-5">
+                                            <input pInputText type="text">
+                                        </div>
+                                    </div>
+                                    <div class="ui-g">
+                                        <label class="ui-g-12 ui-md-4">Storage allocation (GB):
+                                        </label>
+                                        <div class=" ui-g-12 ui-md-5">
+                                            <input pInputText type="text">
+                                        </div>
+                                        <div class=" ui-g-12 ui-md-3 mt-5">
+                                            <p-checkbox label="Unlimited" name="active">
+                                            </p-checkbox>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g">
+                                        <label class="ui-g-12 ui-md-4">Role:</label>
+                                        <div class=" ui-g-12 ui-md-5">
+                                            <p-dropdown filter="true">
+                                            </p-dropdown>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g">
+                                        <label class="ui-g-12 ui-md-4 pt-0"> </label>
+                                        <div class=" ui-g-12 ui-md-8     pt-0 text-grey">
+                                            New users will receive an email with account access instructions
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                            <div class="ui-g">
+                                <div class="ui-g-12 ui-md-8 prl-0 text-right">
+                                    <button class="btn-white" label="Cancel" pButton
+                                            style="width:auto" type="button">
+                                    </button>
+                                    <button class="ml-5" label="Invite User" pButton
+                                            style="width:auto" type="button">
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
                 </p-tabPanel>
                 <p-tabPanel header="Role & Permissions">
-                    Role & Permissions
+
+                    <!--Start form-->
+                    <div class="form-group ui-fluid pbt-0">
+
+                        <div class="hr mb-2x">
+                            <div class="ui-g">
+                                <div class="ui-g-12 ui-md-7 p-0">
+                                    <div class="ui-g bdr-btm">
+                                        <div class="ui-g-12 ui-md-12 text-right">
+
+                                            <button class="btn-white" icon="pi pi-plus" label="Create new role" pButton
+                                                    style="width:auto" type="button">
+                                            </button>
+
+                                        </div>
+
+
+                                    </div>
+                                    <div class="ui-g bdr-btm">
+                                        <div class="ui-g-6 ui-md-6">
+
+                                            Roles
+
+                                        </div>
+                                        <div class="ui-g-3 ui-md-3 text-center">
+
+                                            Members
+                                        </div>
+                                        <div class="ui-g-3 ui-md-3 text-center">
+
+                                            Created
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="ui-g bdr-btm">
+                                        <div class="ui-g-6 ui-md-6">
+
+                                            <label>General</label>
+
+                                        </div>
+                                        <div class="ui-g-3 ui-md-3 text-center">
+
+                                            <label> 1</label>
+                                        </div>
+
+                                        <div class="ui-g-3 ui-md-3 text-center">
+
+                                            Apr 8, 2020 <span class="ml-1x">
+
+                                    <button class="btn-white" icon="pi pi-ellipsis-h" pButton
+                                            style="width:auto" type="button">
+                                 </button></span>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="ui-g bdr-btm">
+                                        <div class="ui-g-6 ui-md-6">
+
+
+                                        </div>
+                                        <div class="ui-g-3 ui-md-3 text-center">
+
+
+                                        </div>
+                                        <div class="ui-g-3 ui-md-3 text-center">
+
+
+                                        </div>
+
+                                    </div>
+                                    <div class="ui-g bdr-btm">
+                                        <div class="ui-g-6 ui-md-6">
+
+
+                                        </div>
+                                        <div class="ui-g-3 ui-md-3 text-center">
+
+
+                                        </div>
+                                        <div class="ui-g-3 ui-md-3 text-center">
+
+
+                                        </div>
+
+                                    </div>
+                                    <div class="ui-g bdr-btm">
+                                        <div class="ui-g-6 ui-md-6">
+
+
+                                        </div>
+                                        <div class="ui-g-3 ui-md-3 text-center">
+
+
+                                        </div>
+                                        <div class="ui-g-3 ui-md-3 text-center">
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
                 </p-tabPanel>
             </p-tabView>
         </div>

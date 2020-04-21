@@ -1,12 +1,12 @@
 <div class="ui-g-10 p-0">
     <div class="card card-w-title pt-0">
-       <!-- <div class="page-heading">
-            <h3>
-                <i class="fa fa-fw fa-user pr-5 mt-3"></i>
-                Account Setting
-            </h3>
-        </div>
-        <div class="clearfix"></div>-->
+        <!-- <div class="page-heading">
+             <h3>
+                 <i class="fa fa-fw fa-user pr-5 mt-3"></i>
+                 Account Setting
+             </h3>
+         </div>
+         <div class="clearfix"></div>-->
         <div class="form-group ui-fluid">
             <p-tabView>
                 <p-tabPanel header="Company">
@@ -42,28 +42,28 @@
                                 <div class="ui-g">
                                     <label class="ui-g-4 ui-md-4">Country</label>
                                     <div class=" ui-g-8 ui-md-8">
-                                        <p-dropdown  filter="true">
+                                        <p-dropdown filter="true">
                                         </p-dropdown>
                                     </div>
                                 </div>
                                 <div class="ui-g">
                                     <label class="ui-g-4 ui-md-4">City</label>
                                     <div class=" ui-g-8 ui-md-8">
-                                        <p-dropdown  filter="true">
+                                        <p-dropdown filter="true">
                                         </p-dropdown>
                                     </div>
                                 </div>
                                 <div class="ui-g">
                                     <label class="ui-g-4 ui-md-4">Time zone</label>
                                     <div class=" ui-g-8 ui-md-8">
-                                        <p-dropdown  filter="true" >
+                                        <p-dropdown filter="true">
                                         </p-dropdown>
                                     </div>
                                 </div>
                                 <div class="ui-g">
                                     <label class="ui-g-4 ui-md-4">Language</label>
                                     <div class=" ui-g-8 ui-md-5">
-                                        <p-dropdown  filter="true">
+                                        <p-dropdown filter="true">
                                         </p-dropdown>
                                     </div>
                                 </div>
@@ -76,14 +76,15 @@
                                 </div>
                                 <div class="ui-g">
                                     <div class=" ui-g-12 ui-md-6">
-                                    <div class="hr text-center bdr-light">
-                                        <div class="hr text-center ptb-2x">
-                                            <img src="../../../assets/layout/images/adminworkbox-logo.png" height="32"
-                                                 width="118"/></div>
-                                        <div class="hr bdr-top">
-                                            <p class=" text-center"> <a href="#."> Change</a></p></div>
+                                        <div class="hr text-center bdr-light">
+                                            <div class="hr text-center ptb-2x">
+                                                <img src="../../../assets/layout/images/adminworkbox-logo.png"
+                                                     height="32"
+                                                     width="118"/></div>
+                                            <div class="hr bdr-top">
+                                                <p class=" text-center"><a href="#."> Change</a></p></div>
+                                        </div>
                                     </div>
-                                </div>
                                 </div>
                                 <div class="ui-g">
                                     <div class=" ui-g-12 ui-md-12">
@@ -91,13 +92,15 @@
                                         <p>* Preview headers of files and folders that ate shared externally.</p>
                                         <p>* Headers of emails that are sent out by the team.</p>
                                         <h6>Info:</h6>
-                                        <p>* supported file formats: jpg, and png (For best results, use a transparent image in png format.)</p>
+                                        <p>* supported file formats: jpg, and png (For best results, use a transparent
+                                            image in png format.)</p>
                                         <p>* Recommended dimensions: 125 x 35 pixels * Maximum file size: 2 MB</p>
-                                    </div></div>
+                                    </div>
                                 </div>
+                            </div>
 
 
-                    </div>
+                        </div>
                     </div>
                 </p-tabPanel>
                 <p-tabPanel header="Content & Sharing">
@@ -107,23 +110,69 @@
                             <div class="ui-g-12 ui-md-12 p-0">
                                 <div class="hr">
                                     <h6 class="text-grey">
-                                    Shared links expirations settings</h6>
+                                        Shared links expirations settings</h6>
                                 </div>
-                                <div class="hr">
+                                <div class="hr mb-2x">
                                     <div class="ui-g ">
-                                        <div class="ui-g-1 ui-md-1"><p-inputSwitch [(ngModel)]="checked"></p-inputSwitch></div>
-                                        <div class="ui-g-11 ui-md-11">Disable all shared links after a specified time of links creation </div>
+                                        <div class="ui-g-1 ui-md-1">
+                                            <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch>
+                                        </div>
+                                        <div class="ui-g-11 ui-md-11">
+                                            <div class="hr">
+                                                Disable all shared links after a specified time of
+                                                links creation
+                                            </div>
+                                            <div class="hr mt-1x">
+                                                <div class="" style="float: left; width: 50px; margin-right: 5px;">
+                                                    <input type="text" pInputText></div>
+                                                <span class="mt-5 pull-left">Days</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="hr mb-2x">
+                                    <div class="ui-g ">
+                                        <div class="ui-g-1 ui-md-1">
+                                            <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch>
+                                        </div>
+                                        <div class="ui-g-11 ui-md-11">
+                                            <div class="hr">
+                                                Enable trash
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="ui-g mb-2x">
+                                        <label class="ui-g-12 ptb-0 text-grey text-left"> Items in trash are
+                                            automatically deleted
+                                            after:</label>
+                                        <div class=" ui-g-12 ui-md-4">
+                                            <p-dropdown filter="true">
+                                            </p-dropdown>
+                                        </div>
                                     </div>
 
 
-
-
-
-
-
-
-
-
+                                    <div class="ui-g ">
+                                        <div class="ui-g-1 ui-md-1">
+                                            <p-inputSwitch [(ngModel)]="checked"> Generate a barcode with each
+                                                document
+                                            </p-inputSwitch>
+                                        </div>
+                                        <div class="ui-g-11 ui-md-11">
+                                            Generate a barcode with each document
+                                        </div>
+                                    </div>
+                                    <div class="ui-g ">
+                                        <div class="ui-g-1 ui-md-1">
+                                            <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch>
+                                        </div>
+                                        <div class="ui-g-11 ui-md-11">
+                                            Allow files and folders to be shared outside this team
+                                        </div>
+                                    </div>
 
 
                                 </div>
@@ -133,14 +182,181 @@
 
                         </div>
                     </div>
-
-
                 </p-tabPanel>
                 <p-tabPanel header="Notification">
-                    Notification
+                    <!--Start form-->
+                    <div class="form-group ui-fluid pbt-0">
+
+                        <div class="hr mb-2x">
+
+                            <div class="ui-g bdr-btm">
+                                <div class="ui-g-6 ui-md-6">
+
+                                    By default, email users when someone:
+
+                                </div>
+                                <div class="ui-g-2 ui-md-2 text-center">
+
+                                    Owner Folders
+
+                                </div>
+                                <div class="ui-g-2 ui-md-2 text-center">
+
+                                    Joined
+
+                                </div>
+                                <div class="ui-g-2 ui-md-2 text-center">
+
+                                    Folders
+
+                                </div>
+                            </div>
+                            <div class="ui-g bdr-btm">
+                                <div class="ui-g-6 ui-md-6">
+
+                                    Downloads
+
+                                </div>
+                                <div class="ui-g-2 ui-md-2 text-center">
+
+                                    <p-checkbox name="active">
+                                    </p-checkbox>
+
+                                </div>
+                                <div class="ui-g-2 ui-md-2 text-center">
+
+                                    <p-checkbox name="active">
+                                    </p-checkbox>
+
+                                </div>
+                                <div class="ui-g-2 ui-md-2 text-center">
+
+                                    <p-checkbox name="active">
+                                    </p-checkbox>
+
+                                </div>
+                            </div>
+                            <div class="ui-g bdr-btm">
+                                <div class="ui-g-6 ui-md-6">
+
+                                    Uploads
+
+                                </div>
+                                <div class="ui-g-2 ui-md-2 text-center">
+
+                                    <p-checkbox name="active">
+                                    </p-checkbox>
+
+                                </div>
+                                <div class="ui-g-2 ui-md-2 text-center">
+
+                                    <p-checkbox name="active">
+                                    </p-checkbox>
+
+                                </div>
+                                <div class="ui-g-2 ui-md-2 text-center">
+
+                                    <p-checkbox name="active">
+                                    </p-checkbox>
+
+                                </div>
+                            </div>
+                            <div class="ui-g bdr-btm">
+                                <div class="ui-g-6 ui-md-6">
+
+                                    Comments
+
+                                </div>
+                                <div class="ui-g-2 ui-md-2 text-center">
+
+                                    <p-checkbox name="active">
+                                    </p-checkbox>
+
+                                </div>
+                                <div class="ui-g-2 ui-md-2 text-center">
+
+                                    <p-checkbox name="active">
+                                    </p-checkbox>
+
+                                </div>
+                                <div class="ui-g-2 ui-md-2 text-center">
+
+                                    <p-checkbox name="active">
+                                    </p-checkbox>
+
+                                </div>
+                            </div>
+                            <div class="ui-g bdr-btm">
+                                <div class="ui-g-6 ui-md-6">
+
+                                    Previews
+
+                                </div>
+                                <div class="ui-g-2 ui-md-2 text-center">
+
+                                    <p-checkbox name="active">
+                                    </p-checkbox>
+
+                                </div>
+                                <div class="ui-g-2 ui-md-2 text-center">
+
+                                    <p-checkbox name="active">
+                                    </p-checkbox>
+
+                                </div>
+                                <div class="ui-g-2 ui-md-2 text-center">
+
+                                    <p-checkbox name="active">
+                                    </p-checkbox>
+
+                                </div>
+                            </div>
+                            <div class="ui-g bdr-btm">
+                                <div class="ui-g-6 ui-md-6">
+
+                                    Deletes
+
+                                </div>
+                                <div class="ui-g-2 ui-md-2 text-center">
+
+                                    <p-checkbox name="active">
+                                    </p-checkbox>
+
+                                </div>
+                                <div class="ui-g-2 ui-md-2 text-center">
+
+                                    <p-checkbox name="active">
+                                    </p-checkbox>
+
+                                </div>
+                                <div class="ui-g-2 ui-md-2 text-center">
+
+                                    <p-checkbox name="active">
+                                    </p-checkbox>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hr ">
+                            <div class="ui-g ">
+                                <div class="ui-g-1 ui-md-1">
+                                    <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch>
+                                </div>
+                                <div class="ui-g-11 ui-md-11">
+                                    Allow files and folders to be shared outside this team
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </p-tabPanel>
                 <p-tabPanel header="Repository Settings">
-                    Repository Settings
+                    <div class="repository">
+                        <ul>
+                            <li class="active"><a href="#."> Dedicated Server</a></li>
+                            <li><a href="#."> AWS S3</a></li>
+                        </ul>
+                    </div>
                 </p-tabPanel>
             </p-tabView>
         </div>
