@@ -43,13 +43,211 @@ body .ui-tabview.ui-tabview-top .ui-tabview-nav li a {padding: 10px 25px;}
 .repository ul li:hover{ background: #f8f8f8;}
 .repository ul li a{ color: #000; text-decoration: none;}
 .repository ul li.active{ background: #eee;}
+/*input switch style*/
+body .ui-chkbox {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    width: 15px;
+    height: 15px;
+}
+body .ui-chkbox .ui-chkbox-box {
+    border: 1px solid #909090;
+    background-color: #ffffff;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    -moz-border-radius: 2px !important;
+    -webkit-border-radius: 2px !important;
+    border-radius: 2px !important;
+    -moz-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    -o-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    -webkit-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+body .ui-chkbox .ui-chkbox-box:not(.ui-state-disabled):hover {
+    border-color: #212121;
+}
+body .ui-chkbox .ui-chkbox-box.ui-state-focus {
+    outline: 0 none;
+    outline-offset: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-color: #909090;color: #0061d5 !important;
+}
+body .ui-chkbox .ui-chkbox-box.ui-state-active {
+        border-color: #909090;
+    background-color: #fff;
+    color: #0061d5;
+}
+body .ui-chkbox .ui-inputswitch-focus { box-shadow: none !important;}
+body .ui-chkbox .ui-chkbox-box .ui-chkbox-icon {
+    display: inline-block;
+    margin-top: 0;
+    margin-left: 0; font-size: 14px !important;
+}
+body .ui-chkbox .ui-chkbox-box.ui-state-active:not(.ui-state-disabled):hover {
+    border-color: #909090;
+    background-color: #fff;
+    color: #0061d5;
+}
+body .ui-chkbox .ui-chkbox-box .ui-chkbox-icon {
+    overflow: hidden;
+    position: relative;
+    font-size: 18px;
+}
+body .ui-chkbox-label {
+    margin: 0 0 0 0.5em;
+}
+body .ui-radiobutton {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+}
+body .ui-radiobutton .ui-radiobutton-box {
+    border: 1px solid #a6a6a6;
+    background-color: #ffffff;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    position: relative;
+    -moz-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    -o-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    -webkit-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+body .ui-radiobutton .ui-radiobutton-box:not(.ui-state-disabled):not(.ui-state-active):hover {
+    border-color: #212121;
+}
+body .ui-radiobutton .ui-radiobutton-box.ui-state-focus {
+    outline: 0 none;
+    outline-offset: 0;
+    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;
+    -moz-box-shadow: 0 0 0 0.2em #8dcdff;
+    box-shadow: 0 0 0 0.2em #8dcdff;
+    border-color: #007ad9;
+}
+body .ui-radiobutton .ui-radiobutton-box.ui-state-active {
+    border-color: #007ad9;
+    background-color: #007ad9;
+    color: #ffffff;
+}
+body .ui-radiobutton .ui-radiobutton-box.ui-state-active .ui-radiobutton-icon {
+    background-color: #ffffff;
+}
+body .ui-radiobutton .ui-radiobutton-box.ui-state-active:not(.ui-state-disabled):hover {
+    border-color: #005b9f;
+    background-color: #005b9f;
+    color: #ffffff;
+}
+body .ui-radiobutton .ui-radiobutton-box .ui-radiobutton-icon {
+    background: transparent;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -5px;
+    margin-top: -5px;
+    -moz-transition: background-color 0.2s;
+    -o-transition: background-color 0.2s;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+body .ui-radiobutton .ui-radiobutton-box .ui-radiobutton-icon:before {
+    display: none;
+}
+body .ui-radiobutton-label {
+    margin: 0 0 0 0.5em;
+}
+body .ui-inputswitch {
+    width: 3em;
+    height: 1.75em;
+}
+body .ui-inputswitch .ui-inputswitch-slider {
+    -moz-transition: background-color 0.2s, box-shadow 0.2s;
+    -o-transition: background-color 0.2s, box-shadow 0.2s;
+    -webkit-transition: background-color 0.2s, box-shadow 0.2s;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    border-radius: 30px;
+    background: #cac8c8;
+}
+body .ui-inputswitch .ui-inputswitch-slider:before {
+    background-color: #ffffff !important;
+    height: 1.25em;
+    width: 1.25em;
+    left: 0.1em;
+    top: 0.1em;
+    bottom: 0.25em;
+    border-radius: 50% !important;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+}
+body .ui-inputswitch.ui-inputswitch-checked .ui-inputswitch-slider:before {
+    -webkit-transform: translateX(1.25em);
+    -ms-transform: translateX(1.25em);
+    transform: translateX(1.25em);
+}
+body .ui-inputswitch.ui-inputswitch-focus .ui-inputswitch-slider {
+    background: #b7b7b7;
+    outline: 0 none;
+    outline-offset: 0;
+    -webkit-box-shadow:none;
+    -moz-box-shadow:none;
+    box-shadow:none;
+}
+body .ui-inputswitch:not(.ui-state-disabled):hover .ui-inputswitch-slider {
+    background-color: #b7b7b7;
+}
+body .ui-inputswitch.ui-inputswitch-checked .ui-inputswitch-slider {
+    background-color: #007ad9;
+}
+body .ui-inputswitch.ui-inputswitch-checked:not(.ui-state-disabled):hover .ui-inputswitch-slider {
+    background-color: #116fbf;
+}
+body .ui-inputswitch.ui-inputswitch-checked.ui-inputswitch-focus .ui-inputswitch-slider {
+    background: #005b9f;
+}
+.new-role{}
+.new-role .ui-chkbox{ margin-right: 7px;}
+/*Datatable styling*/
+.docs-library{}
+.docs-library .ui-table .ui-sortable-column.ui-state-highlight{ background: none; color: #292929;}
+.docs-library  .ui-table .ui-sortable-column.ui-state-highlight .ui-sortable-column-icon{ color: #292929}
+.docs-library .ui-table .ui-table-thead > tr > th{
+    border: none; border-bottom: 1px solid #dfdfdf; line-height: 12px; padding: 5px 8px 5px 8px;}
+.docs-library .ui-table .ui-table-tfoot > tr > td{
+    border: none; border-bottom: 1px solid #dfdfdf; line-height: 12px; padding: 5px 8px 0px 8px;}
+.docs-library .ui-table .ui-table-tbody > tr > td{border: none; border-bottom: 1px solid #dfdfdf; line-height: 12px;
+    padding: 5px 8px 0px 8px;}
+.docs-library .ui-table .ui-table-tbody > tr:nth-child(even){ background: #fff;}
+.docs-library .ui-table .ui-table-tbody > tr:nth-child(even):hover{ background: #f5f9fd !important;}
+.docs-library .ui-table .ui-table-tbody > tr:nth-child(odd):hover{ background: #f5f9fd !important;}
+.docs-library .ui-chkbox .ui-chkbox-box .ui-chkbox-icon{ line-height: 18px !important;}
+.docs-library .ui-table .ui-table-tbody > tr.ui-state-highlight{ background: #f5f9fd; color: #333 !important;}
+.docs-library .ui-table .ui-table-tbody > tr:nth-child(even).ui-state-highlight{ background: #f5f9fd; color: #333 !important;}
 /*Table style*/
 @media only screen and (min-width: 1200px){
     .table-cont {
         overflow-y: visible;
         overflow: inherit;
     }
+    .new-role{ padding: 0 30px;}
+
 }
+.dl-icon{ width: 28px; float: left;}
+.dl-icon img{ max-width: 22px;}
+.dl-icon-det{ line-height: 35px; float: left; font-size: 13px; margin-top: -4px;}
     .table-cont {  overflow-x: scroll;overflow: auto; padding-bottom: 15px;}
     .table-md{ width: 100%; min-width: 1000px; float: left;}
     .table-md{ width: 100%; min-width: 680px; float: left;}
@@ -139,10 +337,11 @@ body .ui-button.ui-button-text-only .ui-button-text { padding: 6px 24px;}
 .pointer:hover {
     cursor: pointer
 }
+.bdr-btm-e8{ border-bottom: 1px solid #e8e8e8;}
 .bdr-light{ border: 1px solid #edecec;}
 .bdr-btm-0{ border-bottom: none;}
-.bdr{ border: 1px solid #a2a2a4 !important;}
-.bdr-btm {border-bottom: 1px solid #cccccc !important;}
+.bdr{ border: 1px solid #dfdfdf !important;}
+.bdr-btm {border-bottom: 1px solid #dfdfdf !important;}
 .bdr-radius-4{ border-radius: 4px;}
 .bdr-radius-4 .ui-corner-all{ border-radius: 4px !important;}
 /*Fonts*/
@@ -311,7 +510,7 @@ h2 {
 .mb-2x {
     margin-bottom: 20px !important;
 }
-
+.mb-3x{ margin-bottom: 30px;}
 .mt-0 {
     margin-top: 0 !important;
 }
@@ -463,179 +662,4 @@ h2 {
 {
     .pl-3x-md{ padding-left: 30px !important;}
 }
-/*input switch style*/
-body .ui-chkbox {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0;
-    width: 20px;
-    height: 20px;
-}
-body .ui-chkbox .ui-chkbox-box {
-    border: 1px solid #a6a6a6;
-    background-color: #ffffff;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    -moz-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
-    -o-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
-    -webkit-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
-    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
-}
-body .ui-chkbox .ui-chkbox-box:not(.ui-state-disabled):hover {
-    border-color: #212121;
-}
-body .ui-chkbox .ui-chkbox-box.ui-state-focus {
-    outline: 0 none;
-    outline-offset: 0;
-    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;
-    -moz-box-shadow: 0 0 0 0.2em #8dcdff;
-    box-shadow: 0 0 0 0.2em #8dcdff;
-    border-color: #007ad9;
-}
-body .ui-chkbox .ui-chkbox-box.ui-state-active {
-    border-color: #007ad9;
-    background-color: #007ad9;
-    color: #ffffff;
-}
-body .ui-chkbox .ui-chkbox-box.ui-state-active:not(.ui-state-disabled):hover {
-    border-color: #005b9f;
-    background-color: #005b9f;
-    color: #ffffff;
-}
-body .ui-chkbox .ui-chkbox-box .ui-chkbox-icon {
-    overflow: hidden;
-    position: relative;
-    font-size: 18px;
-}
-body .ui-chkbox-label {
-    margin: 0 0 0 0.5em;
-}
-body .ui-radiobutton {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0;
-    width: 20px;
-    height: 20px;
-}
-body .ui-radiobutton .ui-radiobutton-box {
-    border: 1px solid #a6a6a6;
-    background-color: #ffffff;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    position: relative;
-    -moz-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
-    -o-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
-    -webkit-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
-    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-}
-body .ui-radiobutton .ui-radiobutton-box:not(.ui-state-disabled):not(.ui-state-active):hover {
-    border-color: #212121;
-}
-body .ui-radiobutton .ui-radiobutton-box.ui-state-focus {
-    outline: 0 none;
-    outline-offset: 0;
-    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;
-    -moz-box-shadow: 0 0 0 0.2em #8dcdff;
-    box-shadow: 0 0 0 0.2em #8dcdff;
-    border-color: #007ad9;
-}
-body .ui-radiobutton .ui-radiobutton-box.ui-state-active {
-    border-color: #007ad9;
-    background-color: #007ad9;
-    color: #ffffff;
-}
-body .ui-radiobutton .ui-radiobutton-box.ui-state-active .ui-radiobutton-icon {
-    background-color: #ffffff;
-}
-body .ui-radiobutton .ui-radiobutton-box.ui-state-active:not(.ui-state-disabled):hover {
-    border-color: #005b9f;
-    background-color: #005b9f;
-    color: #ffffff;
-}
-body .ui-radiobutton .ui-radiobutton-box .ui-radiobutton-icon {
-    background: transparent;
-    width: 10px;
-    height: 10px;
-    display: inline-block;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -5px;
-    margin-top: -5px;
-    -moz-transition: background-color 0.2s;
-    -o-transition: background-color 0.2s;
-    -webkit-transition: background-color 0.2s;
-    transition: background-color 0.2s;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-}
-body .ui-radiobutton .ui-radiobutton-box .ui-radiobutton-icon:before {
-    display: none;
-}
-body .ui-radiobutton-label {
-    margin: 0 0 0 0.5em;
-}
-body .ui-inputswitch {
-    width: 3em;
-    height: 1.75em;
-}
-body .ui-inputswitch .ui-inputswitch-slider {
-    -moz-transition: background-color 0.2s, box-shadow 0.2s;
-    -o-transition: background-color 0.2s, box-shadow 0.2s;
-    -webkit-transition: background-color 0.2s, box-shadow 0.2s;
-    transition: background-color 0.2s, box-shadow 0.2s;
-    border-radius: 30px;
-    background: #cac8c8;
-}
-body .ui-inputswitch .ui-inputswitch-slider:before {
-    background-color: #ffffff !important;
-    height: 1.25em;
-    width: 1.25em;
-    left: 0.1em;
-    top: 0.1em;
-    bottom: 0.25em;
-    border-radius: 50% !important;
-    -webkit-transition: 0.2s;
-    transition: 0.2s;
-}
-body .ui-inputswitch.ui-inputswitch-checked .ui-inputswitch-slider:before {
-    -webkit-transform: translateX(1.25em);
-    -ms-transform: translateX(1.25em);
-    transform: translateX(1.25em);
-}
-body .ui-inputswitch.ui-inputswitch-focus .ui-inputswitch-slider {
-    background: #b7b7b7;
-    outline: 0 none;
-    outline-offset: 0;
-    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;
-    -moz-box-shadow: 0 0 0 0.2em #8dcdff;
-    box-shadow: 0 0 0 0.2em #8dcdff;
-}
-body .ui-inputswitch:not(.ui-state-disabled):hover .ui-inputswitch-slider {
-    background-color: #b7b7b7;
-}
-body .ui-inputswitch.ui-inputswitch-checked .ui-inputswitch-slider {
-    background-color: #007ad9;
-}
-body .ui-inputswitch.ui-inputswitch-checked:not(.ui-state-disabled):hover .ui-inputswitch-slider {
-    background-color: #116fbf;
-}
-body .ui-inputswitch.ui-inputswitch-checked.ui-inputswitch-focus .ui-inputswitch-slider {
-    background: #005b9f;
-}
-.ui-table .ui-table-tbody > tr:nth-child(even){
-    background-color: transparent !important;
-}
-body .ui-table .ui-table-tbody > tr:nth-child(even).ui-state-highlight {
-    background-color: #007bff !important;
-    color: #ffffff !important;
-}
+

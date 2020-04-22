@@ -11,7 +11,7 @@
                         <div class="hr mb-2x">
 
                             <div class="ui-g ">
-                                <div class="ui-g-12 ui-md-8 prl-0 bdr-light">
+                                <div class="ui-g-12 ui-md-8 prl-0 bdr-light bdr-radius-4">
                                     <div class="ui-g">
                                         <label class="ui-g-12 ui-md-4">Full Name:</label>
                                         <div class=" ui-g-12 ui-md-5">
@@ -53,7 +53,7 @@
                                 </div>
 
                             </div>
-                            <div class="ui-g">
+                            <div class="ui-g mt-1x">
                                 <div class="ui-g-12 ui-md-8 prl-0 text-right">
                                     <button class="btn-white" label="Cancel" pButton
                                             style="width:auto" type="button">
@@ -179,7 +179,142 @@
                         </div>
 
                     </div>
+                    <!--Start form New Role-->
+                    <div class="form-group ui-fluid pbt-0">
+                        <div class="hr mb-1x">
+                            <h5>New Role</h5>
+                        </div>
+                        <div class="hr mb-2x">
+                            <div class="ui-g">
+                                <label class="ui-g-1 ui-md-1">Name</label>
+                                <div class=" ui-g-4 ui-md-4">
+                                    <input pInputText type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hr mb-2x">
 
+                            <div class="ui-g ">
+                                <div class="ui-g-12 ui-md-9 bdr-light bdr-radius-4">
+                                    <div class="ui-g new-role mb-4x">
+                                        <div class="ui-g-6 ui-md-6">
+                                            <h5 class="mb-3x">Viewer</h5>
+                                            <div class="hr">
+                                                <p-checkbox label="View" name="active">
+                                                </p-checkbox>
+                                            </div>
+                                            <div class="hr">
+                                                <p-checkbox label="Copy" name="active">
+                                                </p-checkbox>
+                                            </div>
+                                            <div class="hr">
+                                                <p-checkbox label="Comment" name="active">
+                                                </p-checkbox>
+                                            </div>
+                                            <div class="hr">
+                                                <p-checkbox label="Download" name="active">
+                                                </p-checkbox>
+                                            </div>
+
+                                        </div>
+                                        <div class="ui-g-6 ui-md-6">
+                                            <h5 class="mb-0">Editor</h5>
+                                            <p class="text-grey font-sm mt-0 ">Everything the Viewer can do +</p>
+                                            <div class="hr">
+                                                <p-checkbox label="Create/Upload" name="active">
+                                                </p-checkbox>
+                                            </div>
+                                            <div class="hr">
+                                                <p-checkbox label="Edit files and Upload" name="active">
+                                                </p-checkbox>
+                                            </div>
+                                            <div class="hr">
+                                                <p-checkbox label="Access Stats and Activity for files" name="active">
+                                                </p-checkbox>
+                                            </div>
+                                            <div class="hr">
+                                                <p-checkbox label="Rename file/folder " name="active">
+                                                </p-checkbox>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="ui-g new-role mb-4x">
+                                        <div class="ui-g-6 ui-md-6">
+                                            <h5 class="mb-0">Organizer</h5>
+                                            <p class="text-grey font-sm mt-0 ">Everything the Editor can do +</p>
+                                            <div class="hr">
+                                                <p-checkbox label="Move files/folder within Team Folder" name="active">
+                                                </p-checkbox>
+                                            </div>
+                                            <div class="hr">
+                                                <p-checkbox label="Trash" name="active">
+                                                </p-checkbox>
+                                            </div>
+                                            <div class="hr">
+                                                <p-checkbox label="Restore" name="active">
+                                                </p-checkbox>
+                                            </div>
+                                            <div class="hr">
+                                                <p-checkbox label="Share" name="active">
+                                                </p-checkbox>
+                                            </div>
+                                            <div class="hr">
+                                                <p-checkbox label="View" name="active">
+                                                </p-checkbox>
+                                            </div>
+                                            <div class="hr">
+                                                <p-checkbox label="Add/Remove Team Folder members" name="active">
+                                                </p-checkbox>
+                                            </div>
+                                            <div class="hr">
+                                                <p-checkbox label="Manage Team Folder member permissions "
+                                                            name="active">
+                                                </p-checkbox>
+                                            </div>
+                                        </div>
+                                        <div class="ui-g-6 ui-md-6">
+                                            <h5 class="mb-0">Admin</h5>
+                                            <p class="text-grey font-sm mt-0 ">Everything the Organizer can do +</p>
+                                            <div class="hr">
+                                                <p-checkbox label="Delete Team Folder" name="active">
+                                                </p-checkbox>
+                                            </div>
+                                            <div class="hr">
+                                                <p-checkbox label="Manage Team Folder Settings" name="active">
+                                                </p-checkbox>
+                                            </div>
+                                            <div class="hr">
+                                                <p-checkbox label="Move File/Folder outside Team Folder" name="active">
+                                                </p-checkbox>
+                                            </div>
+                                            <div class="hr">
+                                                <p-checkbox label="Delete files and folders from Team Folder trash "
+                                                            name="active">
+                                                </p-checkbox>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="ui-g mt-1x">
+                                <div class="ui-g-12 ui-md-9 prl-0 text-right">
+                                    <button class="btn-white" label="Cancel" pButton
+                                            style="width:auto" type="button">
+                                    </button>
+                                    <button class="ml-5" label="Save" pButton
+                                            style="width:auto" type="button">
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
 
                 </p-tabPanel>
             </p-tabView>

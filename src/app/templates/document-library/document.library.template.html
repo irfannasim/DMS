@@ -20,8 +20,8 @@
             class="btn-white ml-5" style="width:auto">
     </button>
 </div>
-<div class="ui-g-10">
-    <div class="ui-g bdr-top">
+<div class="ui-g-10 docs-library">
+    <div class="ui-g">
         <p-table [columns]="cols" [value]="cars" selectionMode="multiple" [(selection)]="selectedCars1"
                  [rowHover]="true">
             <ng-template pTemplate="header" let-columns>
@@ -41,8 +41,8 @@
                         <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
                     </td>
                     <td>
-                        <span><img src="{{getIconByType(rowData['name'])}}"/> </span>
-                        <span>{{rowData['name']}}</span>
+                        <span class="dl-icon"><img src="{{getIconByType(rowData['name'])}}"/> </span>
+                        <span class="dl-icon-det">{{rowData['name']}}</span>
                     </td>
                     <td>
                         {{rowData['updated']}}
@@ -66,10 +66,13 @@
     </div>
 </div>
 <div class="ui-g-2">
-    <div class="ui-g bdr-top">
-        <h3>
-            Right col
-        </h3>
+    <div class="ui-g bdr-top mt-3x">
+<div class="hr text-right mt-1x"><img src="../../../assets/layout/images/cross.png"/></div>
+        <div class="hr text-center mt-1x"> <img src="../../../assets/layout/images/folders.png"/></div>
+        <p class="text-center text-grey">
+            Select a file ir folder to
+            view details.
+        </p>
     </div>
 
 </div>
