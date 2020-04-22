@@ -31,6 +31,7 @@ export class AppTopBarComponent implements OnInit {
                             if (window.localStorage.getItem(btoa('user-info'))) {
                                 let obj = JSON.parse(JSON.stringify(response['responseData']));
                                 this.wbdUtilService.userInfo = obj;
+                                window.localStorage.setItem(btoa('user-info'), JSON.stringify(obj));
 
                                 this.sharedService.isUserLoggedIn = true;
                                 this.sharedService.userLoggedIn.next(true);
@@ -47,6 +48,8 @@ export class AppTopBarComponent implements OnInit {
                         this.wbdUtilService.tokenExpired(error.error.error);
                     }
                 );
+            // when API is in process - synchronizing
+            this.wbdUtilService.userInfo = JSON.parse(window.localStorage.getItem(btoa('user-info')));
         }
     }
 

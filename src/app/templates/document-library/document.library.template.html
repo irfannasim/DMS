@@ -24,7 +24,7 @@
 <div class="ui-g pt-1x">
 <div class="ui-g-10 docs-library">
     <div class="ui-g">
-        <p-table [columns]="cols" [value]="cars" selectionMode="multiple" [(selection)]="selectedCars1"
+        <p-table [columns]="cols" [value]="documents" selectionMode="multiple" [(selection)]="selectedDocument"
                  [rowHover]="true">
             <ng-template pTemplate="header" let-columns>
                 <tr>
@@ -43,34 +43,31 @@
                         <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
                     </td>
                     <td>
-                        <span class="dl-icon"><img src="{{getIconByType(rowData['name'])}}"/> </span>
-                        <span class="dl-icon-det">{{rowData['name']}}</span>
+                        <span class="dl-icon">
+                            <img src="{{getIconByType(rowData)}}"/>
+                        </span>
+                        <span class="dl-icon-det">
+                            {{rowData['title']}}.{{rowData['extension']}}
+                        </span>
                     </td>
                     <td>
-                        {{rowData['updated']}}
+                        {{rowData['updatedOn']}}
                     </td>
                     <td>
                         {{rowData['size']}}
                     </td>
                     <td>
-                        {{rowData['owner']}}
+                        {{rowData['owner'].fullName}}
                     </td>
                 </tr>
-            </ng-template>
-            <ng-template pTemplate="summary">
-                <ul>
-                    <li *ngFor="let car of selectedCars1" style="text-align: left">
-                        {{car.name + ' - ' + car.updated + ' - ' + car.size }}
-                    </li>
-                </ul>
             </ng-template>
         </p-table>
     </div>
 </div>
 <div class="ui-g-2 pt-1x">
     <div class="ui-g bdr-top mt-3x">
-<div class="hr text-right mt-1x"><img src="../../../assets/layout/images/cross.png"/></div>
-        <div class="hr text-center mt-1x"> <img src="../../../assets/layout/images/folders.png"/></div>
+        <div class="hr text-right mt-1x"><img src="../../../assets/layout/images/cross.png"/></div>
+        <div class="hr text-center mt-1x"><img src="../../../assets/layout/images/folders.png"/></div>
         <p class="text-center text-grey">
             Select a file ir folder to
             view details.

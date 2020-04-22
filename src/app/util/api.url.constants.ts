@@ -12,4 +12,7 @@ export class APIURLConstants {
 
     //User API URL
 
+    //Document Library API URL
+    public static GET_ALL_DOCUMENTS_OWNER_ID = '/document/all-by-owner?ownerId=';
+
 }

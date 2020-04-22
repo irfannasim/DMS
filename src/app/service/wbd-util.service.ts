@@ -4,6 +4,7 @@ import {FileUpload} from 'primeng/primeng';
 
 @Injectable()
 export class WbdUtilService implements OnInit {
+
     userInfo: any = {};
 
     constructor(private router: Router) {
