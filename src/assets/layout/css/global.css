@@ -225,11 +225,11 @@ body .ui-inputswitch.ui-inputswitch-checked.ui-inputswitch-focus .ui-inputswitch
 .docs-library .ui-table .ui-sortable-column.ui-state-highlight{ background: none; color: #292929;}
 .docs-library  .ui-table .ui-sortable-column.ui-state-highlight .ui-sortable-column-icon{ color: #292929}
 .docs-library .ui-table .ui-table-thead > tr > th{
-    border: none; border-bottom: 1px solid #dfdfdf; line-height: 12px; padding: 5px 8px 5px 8px;}
+    border: none; border-bottom: 1px solid #dfdfdf; line-height: 12px; padding: 10px 8px 8px 8px;}
 .docs-library .ui-table .ui-table-tfoot > tr > td{
-    border: none; border-bottom: 1px solid #dfdfdf; line-height: 12px; padding: 5px 8px 0px 8px;}
+    border: none; border-bottom: 1px solid #dfdfdf; line-height: 12px; padding: 10px 8px 4px 8px;}
 .docs-library .ui-table .ui-table-tbody > tr > td{border: none; border-bottom: 1px solid #dfdfdf; line-height: 12px;
-    padding: 5px 8px 0px 8px;}
+    padding: 10px 8px 4px 8px;}
 .docs-library .ui-table .ui-table-tbody > tr:nth-child(even){ background: #fff;}
 .docs-library .ui-table .ui-table-tbody > tr:nth-child(even):hover{ background: #f5f9fd !important;}
 .docs-library .ui-table .ui-table-tbody > tr:nth-child(odd):hover{ background: #f5f9fd !important;}
@@ -614,12 +614,24 @@ h2 {
 .pt-0 {
     padding-top: 0 !important;
 }
+.pt-2 {
+     padding-top: 2px !important;
+ }
+.pt-3 {
+    padding-top: 3px !important;
+}
+.pt-4 {
+    padding-top: 4px !important;
+}
 .pt-5 {
     padding-top: 5px !important;
 }
 .pt-7 {
     padding-top: 7px !important;
 }
+.pt-1x {
+     padding-top: 10px !important;
+ }
 .ptb-0 {
     padding-bottom: 0 !important;
     padding-top: 0 !important;
