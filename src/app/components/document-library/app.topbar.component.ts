@@ -24,7 +24,7 @@ export class AppTopBarComponent implements OnInit {
     ngOnInit() {
         if (window.localStorage.getItem(btoa('access_token'))) {
             this.requestsService.getRequest(
-                APIURLConstants.LOGGED_IN_USER + localStorage.getItem(btoa('access_token')))
+                APIURLConstants.LOGGED_IN_USER_URL + localStorage.getItem(btoa('access_token')))
                 .subscribe(
                     (response: Response) => {
                         if (response['responseCode'] === 'USR_SUC_03') {
