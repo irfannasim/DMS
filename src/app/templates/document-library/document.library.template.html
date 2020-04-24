@@ -1,78 +1,98 @@
+<p-toast key="documentLibraryToast" [style]="{marginTop: '70px'}"></p-toast>
+<p-confirmDialog></p-confirmDialog>
 <div class="ui-g">
     <div class="ui-g-5">
-    <p class="m-0">
-        Breadcrumb
-    </p>
+        <p class="m-0">
+            Breadcrumb
+        </p>
+    </div>
+    <div class="ui-g-7 text-right">
+        <button icon="pi pi-user-plus" pButton type="button" label="Share"
+                class="btn-white ml-5" style="width:auto">
+        </button>
+        <button icon="pi pi-download" pButton type="button" label="Download"
+                class="btn-white ml-5" style="width:auto">
+        </button>
+        <button icon="pi pi-folder" pButton type="button" label="Move to"
+                class="btn-white ml-5" style="width:auto">
+        </button>
+        <button icon="pi pi-trash" pButton type="button" label="Trash"
+                class="btn-white ml-5" style="width:auto">
+        </button>
+        <button icon="pi pi-upload" pButton type="button" label="Upload New Version"
+                class="btn-white ml-5" style="width:auto">
+        </button>
+    </div>
 </div>
-<div class="ui-g-7 text-right">
-    <button icon="pi pi-user-plus" pButton type="button" label="Share"
-            class="btn-white ml-5" style="width:auto">
-    </button>
-    <button icon="pi pi-download" pButton type="button" label="Download"
-            class="btn-white ml-5" style="width:auto">
-    </button>
-    <button icon="pi pi-folder" pButton type="button" label="Move to"
-            class="btn-white ml-5" style="width:auto">
-    </button>
-    <button icon="pi pi-trash" pButton type="button" label="Trash"
-            class="btn-white ml-5" style="width:auto">
-    </button>
-    <button icon="pi pi-upload" pButton type="button" label="Upload New Version"
-            class="btn-white ml-5" style="width:auto">
-    </button>
-</div></div>
 <div class="ui-g pt-1x">
-<div class="ui-g-10 docs-library">
-    <div class="ui-g">
-        <p-table [columns]="cols" [value]="documents" selectionMode="multiple" [(selection)]="selectedDocument"
-                 [rowHover]="true">
-            <ng-template pTemplate="header" let-columns>
-                <tr>
-                    <th style="width: 2em">
-                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-                    </th>
-                    <th *ngFor="let col of columns" [pSortableColumn]="col.field">
-                        {{col.header}}
-                        <p-sortIcon [field]="col.field"></p-sortIcon>
-                    </th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-rowData let-columns="columns" let-rowIndex="rowIndex">
-                <tr [pSelectableRow]="rowData" [pSelectableRowIndex]="rowIndex">
-                    <td>
-                        <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
-                    </td>
-                    <td>
+    <div class="ui-g-10 docs-library">
+        <div class="ui-g">
+            <p-table [columns]="cols" [value]="documents" selectionMode="multiple" [(selection)]="selectedDocument"
+                     [rowHover]="true">
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th style="width: 3em">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+                        <th *ngFor="let col of columns" [pSortableColumn]="col.field"
+                            width="{{col.width}}">
+                            {{col.header}}
+                            <p-sortIcon [field]="col.field"></p-sortIcon>
+                        </th>
+                        <th width="5%"></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-columns="columns" let-rowIndex="rowIndex">
+                    <tr [pSelectableRow]="rowData" [pSelectableRowIndex]="rowIndex">
+                        <td>
+                            <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+                        </td>
+                        <td>
                         <span class="dl-icon">
                             <img src="{{getIconByType(rowData)}}"/>
                         </span>
-                        <span class="dl-icon-det">
+                            <span class="dl-icon-det">
                             {{rowData['title']}}.{{rowData['extension']}}
                         </span>
-                    </td>
-                    <td>
-                        {{rowData['updatedOn']}}
-                    </td>
-                    <td>
-                        {{rowData['size']}}
-                    </td>
-                    <td>
-                        {{rowData['owner'].fullName}}
-                    </td>
-                </tr>
-            </ng-template>
-        </p-table>
+                        </td>
+                        <td>
+                            {{rowData['updatedOn']}}
+                        </td>
+                        <td>
+                            {{rowData['size']}}
+                        </td>
+                        <td>
+                            {{rowData['owner'].fullName}}
+                        </td>
+                        <td>
+                            <p-tieredMenu #menu popup="popup" [model]="items" appendTo="body">
+                            </p-tieredMenu>
+                            <button pButton type="button" class="ui-button-secondary" icon="pi pi-cog"
+                                    (click)="onClickMenu(menu, $event, rowData)">
+                            </button>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="5" style="text-align:left">No documents found.</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
     </div>
-</div>
-<div class="ui-g-2 pt-1x">
-    <div class="ui-g bdr-top mt-3x">
-        <div class="hr text-right mt-1x"><img src="../../../assets/layout/images/cross.png"/></div>
-        <div class="hr text-center mt-1x"><img src="../../../assets/layout/images/folders.png"/></div>
-        <p class="text-center text-grey">
-            Select a file ir folder to
-            view details.
-        </p>
+    <div class="ui-g-2 pt-1x">
+        <div class="ui-g bdr-top mt-3x">
+            <div class="hr text-right mt-1x">
+                <img src="../../../assets/layout/images/cross.png"/>
+            </div>
+            <div class="hr text-center mt-1x">
+                <img src="../../../assets/layout/images/folders.png"/>
+            </div>
+            <p class="text-center text-grey">
+                Select a file or folder to
+                view details.
+            </p>
+        </div>
     </div>
-
-</div>
 </div>

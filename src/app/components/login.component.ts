@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
                 return;
             }
             this.requestsService.postRequestAccessToken(
-                APIURLConstants.LOGIN_API
+                APIURLConstants.LOGIN_API_URL
                 , {
                     'tenantId': this.tenantId,
                     'username': this.username,

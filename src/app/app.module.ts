@@ -20,6 +20,7 @@ import {ContentComponent} from "./components/document-library/content.component"
 import {MenuService} from "./service/app.menu.service";
 import {SharedService} from "./service/shared.service";
 import {UserUpdateService} from "./service/user.update.service";
+import {ViewContentComponent} from "./components/view/view.content.component";
 
 @NgModule({
     imports: [
@@ -29,7 +30,6 @@ import {UserUpdateService} from "./service/user.update.service";
         HttpClientModule,
         BrowserAnimationsModule,
         PrimengModule
-
     ],
     declarations: [
         AppComponent,
@@ -40,7 +40,8 @@ import {UserUpdateService} from "./service/user.update.service";
         AppProfileComponent,
         // AppConfigComponent,
         LoginComponent,
-        ContentComponent
+        ContentComponent,
+        ViewContentComponent
     ],
     providers: [
         {provide: LocationStrategy, useClass: PathLocationStrategy},

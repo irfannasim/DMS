@@ -1,20 +1,20 @@
 import {NgModule} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
-import {DocumentLibraryRoutingModuleModule} from "./document.library.routing.module";
+import {DlViewRoutingModuleModule} from "./dl.view.routing.module";
 import {PrimengModule} from "../../shared/primeng/primeng.module";
-import {DocumentLibraryComponent} from "./document-library.component";
+import {ViewDocumentComponent} from "./view.document.component";
 
 @NgModule({
     imports: [
         CommonModule,
-        DocumentLibraryRoutingModuleModule,
+        DlViewRoutingModuleModule,
         PrimengModule,
         ReactiveFormsModule
     ],
     declarations: [
-        DocumentLibraryComponent,
+        ViewDocumentComponent,
     ],
 })
-export class DocumentLibraryModule {
+export class DlViewModule {
 }

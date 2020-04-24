@@ -2,6 +2,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
 import {LoginComponent} from "./components/login.component";
 import {ContentComponent} from "./components/document-library/content.component";
+import {ViewContentComponent} from "./components/view/view.content.component";
 
 export const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -22,6 +23,12 @@ export const routes: Routes = [
         path: 'profile', component: ContentComponent,
         children: [
             {path: '', loadChildren: './components/profile/profile.module#ProfileModule'},
+        ]
+    },
+    {
+        path: 'dl/view', component: ViewContentComponent,
+        children: [
+            {path: '', loadChildren: './components/view/dl.view.module#DlViewModule'},
         ]
     },
 ];

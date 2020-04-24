@@ -182,7 +182,7 @@ export class ContentComponent implements OnInit {
 
     logout() {
         this.requestsService.getRequest(
-            APIURLConstants.LOGOUT_API)
+            APIURLConstants.LOGOUT_API_URL)
             .subscribe(
                 (response: Response) => {
                     if (response['responseCode'] === 'USR_SUC_02') {
