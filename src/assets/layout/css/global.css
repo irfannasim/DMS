@@ -730,7 +730,10 @@ h2 {
 {
     .pl-3x-md{ padding-left: 30px !important;}
 }
-
+loading-bar{
+    position: absolute; left:0; bottom: -6px; width: 100%;
+}
+.splash-screen{background: url('../../layout/images/loading-bg1.png') repeat}
 @media screen and (max-width: 768px)
 {
     .dl-view-1{width:100%; border:none;}

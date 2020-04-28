@@ -7,7 +7,7 @@ export const environment = {
     production: false,
     http_protocol: 'http',
     http_separator: '://',
-    api_end_point_url: '122.129.73.84',
+    api_end_point_url: 'localhost',
     api_end_point_port: '8080',
     api_context_path: 'drive',
     api_access_client: 'WBDrive',

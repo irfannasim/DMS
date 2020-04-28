@@ -21,6 +21,7 @@ import {MenuService} from "./service/app.menu.service";
 import {SharedService} from "./service/shared.service";
 import {UserUpdateService} from "./service/user.update.service";
 import {ViewContentComponent} from "./components/view/view.content.component";
+import {LoaderService} from "./service/loader.service";
 
 @NgModule({
     imports: [
@@ -49,7 +50,8 @@ import {ViewContentComponent} from "./components/view/view.content.component";
         RequestsService,
         WbdUtilService,
         SharedService,
-        UserUpdateService
+        UserUpdateService,
+        LoaderService
     ],
     bootstrap: [AppComponent]
 })

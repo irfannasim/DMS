@@ -9,10 +9,10 @@ import {AppConstants} from "../../util/app.constants";
 import {LoaderService} from "../../service/loader.service";
 
 @Component({
-    selector: 'document-library-component',
-    templateUrl: '../../templates/document-library/document.library.template.html'
+    selector: 'favourite-component',
+    templateUrl: '../../templates/document-library/favourite.template.html'
 })
-export class DocumentLibraryComponent implements OnInit {
+export class FavouriteComponent implements OnInit {
 
     cols: any[];
     documents: any[];
@@ -40,7 +40,7 @@ export class DocumentLibraryComponent implements OnInit {
             {field: 'size', header: 'Size', width: '10%'},
             {field: 'owner.fullName', header: 'Owner', width: '20%'}
         ];
-        this.loadAllDocuments();
+        this.loadAllFavouriteDocuments();
         this.loadMenuItems();
     }
 
@@ -48,9 +48,6 @@ export class DocumentLibraryComponent implements OnInit {
         this.items = [
             {
                 label: 'Preview', icon: 'pi pi-eye',
-            },
-            {
-                label: 'Share', icon: 'pi pi-share-alt'
             },
             {
                 label: 'Download', icon: 'pi pi-download',
@@ -65,30 +62,16 @@ export class DocumentLibraryComponent implements OnInit {
                 label: 'Move To', icon: 'pi pi-fw pi-times'
             },
             {
-                label: 'Make a Copy', icon: 'pi pi-copy'
-            },
-            {
-                label: 'Add to Favourites', icon: 'pi pi-star-o',
+                label: 'Remove Favourite', icon: 'pi pi-star',
                 command: () => {
-                    this.favouriteDocument();
+                    this.unFavouriteDocument();
                 }
             },
             {
-                label: 'View Details', icon: 'pi pi-fw pi-times'
-            },
-            {
-                label: 'More Actions', icon: 'pi pi-fw pi-times',
-                items: [
-                    {
-                        label: 'Trash', icon: 'pi pi-trash',
-                        command: () => {
-                            this.confirmDocumentArchive();
-                        }
-                    },
-                    {label: 'Set Expiration', icon: 'pi pi-fw pi-download'},
-                    {label: 'Upload New Version', icon: 'pi pi-upload'},
-                    {label: 'Print Barcode', icon: 'pi pi-print'}
-                ]
+                label: 'Trash', icon: 'pi pi-trash',
+                command: () => {
+                    this.confirmDocumentArchive();
+                }
             },
         ];
     }
@@ -99,12 +82,12 @@ export class DocumentLibraryComponent implements OnInit {
         this.toggleSelectedDocument = data;
     }
 
-    loadAllDocuments() {
+    loadAllFavouriteDocuments() {
         this.requestsService.getRequest(
-            APIURLConstants.GET_ALL_DOCUMENTS_OWNER_ID_API_URL + this.wbdUtilService.userInfo.id)
+            APIURLConstants.FETCH_ALL_FAVOURITE_DOCUMENT_API_URL + this.wbdUtilService.userInfo.id)
             .subscribe(
                 (response: Response) => {
-                    if (response['responseCode'] === 'DOC_SUC_01') {
+                    if (response['responseCode'] === 'DOC_SUC_05') {
                         this.documents = response['responseData'];
                     }
                     this.loaderService.inProgress = false;
@@ -112,7 +95,7 @@ export class DocumentLibraryComponent implements OnInit {
                 (error: any) => {
                     this.loaderService.inProgress = false;
                     this.messageService.add({
-                        key: 'documentLibraryToast',
+                        key: 'favouriteToast',
                         severity: 'error',
                         summary: 'Document Library',
                         detail: 'Internal Server Error, Please contact Administrator'
@@ -253,7 +236,7 @@ export class DocumentLibraryComponent implements OnInit {
                     let blob = new Blob([response], {type: mimeType});
                     FileSaver.saveAs(blob, fileName);
                     this.messageService.add({
-                        key: 'documentLibraryToast',
+                        key: 'favouriteToast',
                         severity: 'success',
                         summary: 'Download Document',
                         detail: 'Document downloaded successfully.'
@@ -261,7 +244,7 @@ export class DocumentLibraryComponent implements OnInit {
                     this.loaderService.inProgress = false;
                 }, (error: any) => {
                     this.messageService.add({
-                        key: 'documentLibraryToast',
+                        key: 'favouriteToast',
                         severity: 'error',
                         summary: 'Download Document',
                         detail: 'Unable to download document.'
@@ -270,21 +253,23 @@ export class DocumentLibraryComponent implements OnInit {
                 });
     }
 
-    favouriteDocument() {
+    unFavouriteDocument() {
         this.requestsService.putRequest(APIURLConstants.FAVOURITE_DOCUMENT_API_URL,
             {"docId": this.toggleSelectedDocument.id})
             .subscribe(
                 (response: Response) => {
                     if (response['responseCode'] === 'DOC_SUC_04') {
+                        const index = this.documents.map(d => d.id).indexOf(this.toggleSelectedDocument.id);
+                        this.documents.splice(index, 1);
                         this.messageService.add({
-                            key: 'documentLibraryToast',
+                            key: 'favouriteToast',
                             severity: 'success',
                             summary: 'Favourite Document',
                             detail: response['responseMessage']
                         });
                     } else {
                         this.messageService.add({
-                            key: 'documentLibraryToast',
+                            key: 'favouriteToast',
                             severity: 'error',
                             summary: 'Favourite Document',
                             detail: response['responseMessage']
@@ -295,7 +280,7 @@ export class DocumentLibraryComponent implements OnInit {
                 (error: any) => {
                     this.loaderService.inProgress = false;
                     this.messageService.add({
-                        key: 'documentLibraryToast',
+                        key: 'favouriteToast',
                         severity: 'error',
                         summary: 'Favourite Document',
                         detail: 'Internal Server Error, Please contact Administrator'
@@ -313,7 +298,7 @@ export class DocumentLibraryComponent implements OnInit {
                         let blob = new Blob([response], {type: mimeType});
                         FileSaver.saveAs(blob, fileName);
                         this.messageService.add({
-                            key: 'documentLibraryToast',
+                            key: 'favouriteToast',
                             severity: 'success',
                             summary: 'Download Document',
                             detail: fileName + ' downloaded successfully.'
@@ -321,7 +306,7 @@ export class DocumentLibraryComponent implements OnInit {
                         this.loaderService.inProgress = false;
                     }, (error: any) => {
                         this.messageService.add({
-                            key: 'documentLibraryToast',
+                            key: 'favouriteToast',
                             severity: 'error',
                             summary: 'Download Document',
                             detail: 'Unable to download document.'
@@ -348,15 +333,15 @@ export class DocumentLibraryComponent implements OnInit {
             return document.thumbnailImgUrl;
         } else {
             if (document.extension === 'pdf') {
-                return "assets/icons/pdf-red.svg"
+                return "assets/icons/pdf-red.png"
             } else if (document.extension === 'doc' || document.extension === 'docx') {
-                return "assets/icons/word-blue.svg"
+                return "assets/icons/word-blue.png"
             } else if (document.extension === 'xls' || document.extension === 'xlsx') {
-                return "assets/icons/xls-green.svg"
+                return "assets/icons/xls-green.png"
             } else if (document.extension === 'zip' || document.extension === '7zip' || document.extension === 'rar') {
-                return "assets/icons/zip-yellow.svg"
+                return "assets/icons/zip-yellow.png"
             } else {
-                return "assets/icons/xls-l-blue.svg"
+                return "assets/icons/xls-l-blue.png"
             }
         }
     }
