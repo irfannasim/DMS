@@ -149,15 +149,15 @@ export class DocumentLibraryComponent implements OnInit {
             return document.thumbnailImgUrl;
         } else {
             if (document.extension === 'pdf') {
-                return "assets/icons/pdf-red.png"
+                return "assets/icons/pdf-red.svg"
             } else if (document.extension === 'doc' || document.extension === 'docx') {
-                return "assets/icons/word-blue.png"
+                return "assets/icons/word-blue.svg"
             } else if (document.extension === 'xls' || document.extension === 'xlsx') {
-                return "assets/icons/xls-green.png"
+                return "assets/icons/xls-green.svg"
             } else if (document.extension === 'zip' || document.extension === '7zip' || document.extension === 'rar') {
-                return "assets/icons/zip-yellow.png"
+                return "assets/icons/zip-yellow.svg"
             } else {
-                return "assets/icons/xls-l-blue.png"
+                return "assets/icons/xls-l-blue.svg"
             }
         }
     }
