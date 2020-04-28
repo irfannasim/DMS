@@ -1,11 +1,13 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from "../../environments/environment";
+import {LoaderService} from "./loader.service";
 
 @Injectable()
 export class RequestsService {
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient,
+                public loaderService: LoaderService) {
     };
 
     getToken() {
@@ -29,6 +31,8 @@ export class RequestsService {
     }
 
     postRequestAccessToken(url: any, _params: any) {
+        this.loaderService.inProgress = true;
+
         const reqHeader = new HttpHeaders(
             {
                 'Authorization': 'Basic ' + btoa(_params['username'] + ':' + _params['password']),
@@ -41,6 +45,8 @@ export class RequestsService {
     }
 
     getRequest(url: any) {
+        this.loaderService.inProgress = true;
+
         const reqHeader = new HttpHeaders(
             {
                 'Authorization': 'Basic ' + this.getToken(),
@@ -52,6 +58,8 @@ export class RequestsService {
     }
 
     postRequest(url: any, _params: any) {
+        this.loaderService.inProgress = true;
+
         const reqHeader = new HttpHeaders(
             {
                 'Authorization': 'Basic ' + this.getToken(),
@@ -63,6 +71,8 @@ export class RequestsService {
     }
 
     postUnAuthRequest(url: any, _params: any) {
+        this.loaderService.inProgress = true;
+
         const reqHeader = new HttpHeaders(
             {
                 'Content-Type': 'application/json',
@@ -73,6 +83,8 @@ export class RequestsService {
     }
 
     deleteRequest(url: any) {
+        this.loaderService.inProgress = true;
+
         const reqHeader = new HttpHeaders(
             {
                 'Authorization': 'Basic ' + this.getToken(),
@@ -84,6 +96,8 @@ export class RequestsService {
     }
 
     putRequest(url: any, _params: any) {
+        this.loaderService.inProgress = true;
+
         const reqHeader = new HttpHeaders(
             {
                 'Authorization': 'Basic ' + this.getToken(),
@@ -95,6 +109,8 @@ export class RequestsService {
     }
 
     putUnAuthRequest(url: any, _params: any) {
+        this.loaderService.inProgress = true;
+
         const reqHeader = new HttpHeaders(
             {
                 'Content-Type': 'application/json',
@@ -102,6 +118,18 @@ export class RequestsService {
             }
         );
         return this.http.put(this.getBEAPIServer() + url, _params, {headers: reqHeader});
+    }
+
+    getRequestFile(url: any) {
+        this.loaderService.inProgress = true;
+
+        const reqHeader = new HttpHeaders(
+            {
+                'Authorization': 'Basic ' + this.getToken(),
+                'X-TENANT-ID': atob(localStorage.getItem(btoa('tenantId')))
+            }
+        );
+        return this.http.get(this.getBEAPIServer() + url, {headers: reqHeader, responseType: 'arraybuffer'});
     }
 
 }

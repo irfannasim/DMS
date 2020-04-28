@@ -67,8 +67,8 @@ export class AppMenuComponent implements OnInit {
                             {label: 'Shared By Me', icon: 'icon-dashboard', routerLink: ['/shared-by-me']},
                             {label: 'Shared With Me', icon: 'icon-dashboard', routerLink: ['/shared-with-me']},
                             {label: 'Recents', icon: 'icon-dashboard', routerLink: ['/recents']},
-                            {label: 'Favourites', icon: 'icon-dashboard', routerLink: ['/favourites']},
-                            {label: 'Trash', icon: 'fa fa-trash', routerLink: ['/trash']},
+                            {label: 'Favourites', icon: 'icon-dashboard', routerLink: ['/document-library/favourites']},
+                            {label: 'Trash', icon: 'fa fa-trash', routerLink: ['/document-library/trash']},
                             {label: 'Admin Console', icon: 'icon-dashboard', routerLink: ['/admin-console']}
                         ];
                     }

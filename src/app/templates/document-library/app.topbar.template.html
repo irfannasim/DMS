@@ -165,7 +165,14 @@
                     </li>
                 </ul>
             </li>
-
         </ul>
+    </div>
+    <div class="loading-bar" *ngIf="loaderService.inProgress === true">
+        <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+    </div>
+    <div style="position: absolute" *ngIf="loaderService.inProgress === true">
+        <div class="splash-screen" style="z-index: 1504;">
+            <div class="splash-loader"></div>
+        </div>
     </div>
 </div>

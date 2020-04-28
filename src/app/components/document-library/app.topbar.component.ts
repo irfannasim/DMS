@@ -4,8 +4,8 @@ import {APIURLConstants} from "../../util/api.url.constants";
 import {RequestsService} from "../../service/requests.service";
 import {WbdUtilService} from "../../service/wbd-util.service";
 import {SharedService} from "../../service/shared.service";
-import {Router} from "@angular/router";
 import {UserUpdateService} from "../../service/user.update.service";
+import {LoaderService} from "../../service/loader.service";
 
 @Component({
     selector: 'app-topbar',
@@ -18,7 +18,7 @@ export class AppTopBarComponent implements OnInit {
                 private requestsService: RequestsService,
                 public wbdUtilService: WbdUtilService,
                 private sharedService: SharedService,
-                private router: Router) {
+                public loaderService: LoaderService) {
     }
 
     ngOnInit() {
@@ -42,10 +42,11 @@ export class AppTopBarComponent implements OnInit {
                                 this.wbdUtilService.logout();
                             }
                         }
-
+                        this.loaderService.inProgress = false;
                     },
                     (error: any) => {
                         this.wbdUtilService.tokenExpired(error.error.error);
+                        this.loaderService.inProgress = false;
                     }
                 );
             // when API is in process - synchronizing
